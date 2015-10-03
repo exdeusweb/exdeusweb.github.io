@@ -18,7 +18,7 @@
  Changing anything in the registry can be hazardous.
  No warranty is offered or implied. <b>Use at your own risk!</b></p>
 
- <p>This script will add a number of registry tweaks to enhance the
+ <p>This script will add or remove a number of registry tweaks to enhance the
  performance of ATI HD2000 &amp; HD3000 series video cards for use in HTPCs.</p>
 
  <p>The simple way to use this program:<br>
@@ -58,7 +58,7 @@ device.</p>
 <h3>Internet Explorer: Right-click and select 'Save Target As...'</h3>
 <h3>Firefox: Right-click and select 'Save Link As...'</h3>
 
-<h1><a href="ATI_HD_Reg_Tweaks_0.13.vbs">Download ATI HD Registry Tweaks 0.13</a></h1>
+<h1><a href="ATI_HD_Reg_Tweaks_0.14.vbs">Download ATI HD Registry Tweaks 0.14</a></h1>
 
 <p>This is a program written in VBScript. You can view the source code in your browser
 or in any text editor. If you double-click it, it will run using the Windows Script Host,
@@ -175,6 +175,20 @@ R6=DriverPath_R6,0x554F:0x149218BC,0x7162:0x3001147B,<span style="font-weight:bo
 DriverPath_R6=\XP_INF,CX_52443.INF</p>
 
 
+<a name="uac" id="uac"><hr /></a>
+
+<h2>If you receive errors stating registry access was denied while using Windows Vista...</h2>
+
+<p>It is likely that either your account or the program does not have administrative rights, 
+which under Windows Vista is usually caused by User Account Control.</p>
+
+<p>It is easiest to turn off User Account Control, but this would have security implications for your entire computer.
+Please read the following articles from Microsoft for advice on User Account Control:</p>
+
+<p><a href="http://support.microsoft.com/kb/922708/en-us">How to use User Account Control (UAC) in Windows Vista</a><br />
+<a href="http://windowshelp.microsoft.com/Windows/en-US/Help/58b3b879-924d-4e08-9358-c316055d3eae1033.mspx">Turn User Account Control on or off</a></p>
+
+
 <a name="redshift" id="redshift"><hr /></a>
 
 <h2>If you see red-shift or flashes of color on red objects...</h2>
@@ -187,6 +201,10 @@ In the ATI CCC, try disabling pulldown detection .</p>
 
 <h2>Changelog:</h2>
 
+<p>2008-04-16 0.14<br>
+Added the ability to delete individual or all registry entries for a device.
+</p>
+
 <p>2008-03-21 0.13<br>
 Renamed and changed to apply to all HD2000 and HD3000 cards.<br>
 Added prompt to ensure user is aware of dual display circumstances necessitating HWUVD_ForceMPEG2.<br>
@@ -263,6 +281,16 @@ document.write((new Date(document.lastModified)).toUTCString());
 
 <p><center><a href="http://home.comcast.net/cgi-bin/GBView?owner=exdeus"><img src="http://home.comcast.net/global-images/guestbook/view_gb.jpg" border="0"></a></center></p>
 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4148123-1");
+pageTracker._setDomainName("exdeus.home.comcast.net")
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
 </body></html>
 
 
