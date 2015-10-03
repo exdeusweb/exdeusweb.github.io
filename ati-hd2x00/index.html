@@ -3,7 +3,8 @@
 <title>ATI HD2x00 Registry Tweaks</title>
 <link rel="shortcut icon" href="http://www.comcast.net/favicon.ico" type="image/vnd.microsoft.icon" />
 <style>
-	p,h1,h2,h3 { font-family:Arial; color:navy }
+	p,h1,h2,h3 { font-family:Verdana; color:navy }
+	p { font-size:10pt }
 </style>
 </head>
 <body bgcolor="#f9fafe">
@@ -59,7 +60,7 @@
 <h3>Internet Explorer: Right-click and select 'Save Target As...'</h3>
 <h3>Firefox: Right-click and select 'Save Link As...'</h3>
 
-<h1><a href="ATI_HD2x00_Reg_Tweaks_0.9.vbs">Download ATI HD2x00 Registry Tweaks 0.9</a></h1>
+<h1><a href="ATI_HD2x00_Reg_Tweaks_0.10.vbs">Download ATI HD2x00 Registry Tweaks 0.10</a></h1>
 
 <p>This is a program written in VBScript. You can view the source code in your browser
 or in any text editor. If you double-click it, it will run using the Windows Script Host,
@@ -80,6 +81,7 @@ arfster's AVS Forum post</a> for details on the effects of each setting.</p>
 
  <h3>HD2400 & HD2600</h3>
  <p>"DXVA_DetailEnhance"="0"<br>
+ "DXVA_NOHDDECODE"="0"<br>
 "DXVA_WMV_NA"="0" <br>
 "SORTOverrideVidSizeCaps"="2800000"<br>
 "TrDenoise"="0"<br>
@@ -87,8 +89,7 @@ arfster's AVS Forum post</a> for details on the effects of each setting.</p>
 "VForceMaxResSize"="2800000"</p>
 
  <h3>HD2400 Only</h3>
- <p>"DXVA_NOHDDECODE"="0"<br>
-"DXVA_Only24FPS1080MPEG2"="0"<br>
+ <p>"DXVA_Only24FPS1080MPEG2"="0"<br>
 "DXVA_Only24FPS1080H264"="0"<br>
 "DXVA_Only24FPS1080VC1"="0"<br>
 "SORTOverrideFPSCaps"="0"<br>
@@ -119,38 +120,74 @@ arfster's AVS Forum post</a> for details on the effects of each setting.</p>
  <p>The files you need to edit are: </p>
 
  <h3>Windows Vista</h3>
- <p style="font-weight:bold">C:\ATI\SUPPORT\{Current Version}\Driver\Packages\Drivers\Display\LH_INF\CX_*****.inf</p>
+ <p style="font-weight:bold">C:\ATI\SUPPORT\[Current Version]\Driver\Packages\Drivers\Display\LH_INF\CX_*****.inf</p>
 
  <p>Under "[ATI.Mfg]", add the following lines. You can do a search for "HD 2400" to put the lines with the other
- entries for the HD2000 series.</p>
+ entries for the HD2000 series, if you wish.</p>
 
 <p>"ATI Radeon HD 2400 PRO AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C4<br>
+"ATI Radeon HD 2400 XT AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C6<br>
+"ATI Radeon HD 2600 PRO AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9587<br>
+"ATI Radeon HD 2600 XT AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9586</p>
+
+<p>The lines can be placed anywhere under the "[ATI.Mfg]" section. For example, your entry could look as follows:</p>
+
+<p>[ATI.Mfg]<br>
+"ATI Radeon HD 2400 PRO AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C4<br>
+"ATI Radeon HD 2400 XT AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C6<br>
 "ATI Radeon HD 2600 PRO AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9587<br>
 "ATI Radeon HD 2600 XT AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9586</p>
 
 <h3>Windows XP/MCE</h3>
-<p style="font-weight:bold">C:\ATI\SUPPORT\{Current Version}\Driver\Driver\XP_INF\CX_*****.inf</p>
+<p style="font-weight:bold">C:\ATI\SUPPORT\[Current Version]\Driver\Driver\XP_INF\CX_*****.inf</p>
 
 <p>Under "[ATI.Mfg.NTx86]", add the following lines. You can do a search for "HD 2400" to put the lines with the other
- entries for the HD2000 series.</p>
+ entries for the HD2000 series, if you wish.</p>
 
 <p>"ATI Radeon HD 2400 PRO AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C4<br>
+"ATI Radeon HD 2400 XT AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C6<br>
 "ATI Radeon HD 2600 PRO AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9587<br>
 "ATI Radeon HD 2600 XT AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9586</p>
 
-<p style="font-weight:bold">C:\ATI\SUPPORT\{Current Version}\Driver\Driver\CX_*****.INI<br>
-C:\ATI\SUPPORT\{Current Version}\Driver\Driver\INSTALL.INI</p>
+<p>The lines can be placed anywhere under the "[ATI.Mfg.NTx86]" section. For example, your entry could look as follows:</p>
 
-<p>In <bold>both files</bold>, under the "[WINXP]" section, add the following at the end of the second line,
+<p>[ATI.Mfg.NTx86]<br>
+"ATI Radeon HD 2400 PRO AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C4<br>
+"ATI Radeon HD 2400 XT AGP" = ati2mtag_RV610, PCI\VEN_1002&DEV_94C6<br>
+"ATI Radeon HD 2600 PRO AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9587<br>
+"ATI Radeon HD 2600 XT AGP" = ati2mtag_RV630, PCI\VEN_1002&DEV_9586</p>
+
+<p style="font-weight:bold">C:\ATI\SUPPORT\[Current Version]\Driver\Driver\CX_*****.INI<br>
+C:\ATI\SUPPORT\[Current Version]\Driver\Driver\INSTALL.INI</p>
+
+<p>In <span style="font-weight:bold">both files</span>, under the "[WINXP]" section, add the following at the end of the second line,
 which starts "R6=DriverPath_R6":</p>
 
-<p>,0x9587,0x94C6,0x94C4,0x9586</p>
+<p>,0x94C4,0x94C6,0x9586,0x9587</p>
+
+<p>For example, your entry could look as follows:</p>
+
+<p>[WINXP]<br>
+Label=R6,R6_2,R6_3,R6_4,R6_5,R6_6,R6_7,R6_8,R6_9,R6_10<br>
+R6=DriverPath_R6,0x554F:0x149218BC,0x7162:0x3001147B,<span style="font-weight:bold">0x94C4,0x94C6,0x9586,0x9587</span><br>
+DriverPath_R6=\XP_INF,CX_52443.INF</p>
+
+
+<a name="redshift" id="redshift"><hr /></a>
+
+<h2>If you see red-shift or flashes of color on red objects...</h2>
+
+<p>For NTSC material, it seems to be related to framerate detection of NTSC video material (29.97fps, interlaced).
+In the ATI CCC, try disabling pulldown detection .</p>
 
 
 <a name="changelog" id="changelog"><hr /></a>
 
+<h2>Changelog:</h2>
 
-<h3>Changelog:</h3>
+<p>2007-10-30 0.10:<br>
+Added DXVA_NOHDDECODE to apply to the HD2600, as HD-MPEG2 DXVA was broken in the ATI Catalyst 7.10 drivers.
+</p>
 
 <p>2007-09-27 0.9:<br>
 Made comments in the file header a little more generic.<br>
