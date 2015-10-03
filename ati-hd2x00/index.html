@@ -20,9 +20,9 @@
  No warranty is offered or implied. <b>Use at your own risk!</b></p>
 
  <p>This script will add or remove a number of registry tweaks to enhance the
- performance of ATI HD2000 &amp; HD3000 series video cards for use in HTPCs.</p>
+ performance of ATI HD2000, HD3000 &amp; HD4000 series video cards for use in HTPCs.</p>
 
- <p>The simple way to use this program:<br>
+ <p><b>The simple way to use this program:</b><br>
  <br>
  Run the script (double-click). When you are prompted to approve a video device,
  read the "Device Description". If it looks like a description for your video card,
@@ -30,7 +30,7 @@
  caused by adding the settings under multiple video devices, or even under video
  devices that aren't your active video card. The settings will be ignored by other devices.</p>
 
- <p>To make it more complicated:<br>
+ <p><b>To make it more complicated:</b><br>
  <br>
  Under Windows XP / MCE, if you want to add a level of verification that you have the correct video device,
  open the ATI Catalyst Control Center, and select the
@@ -53,6 +53,8 @@ e.g., 0000 and 0001. In Windows Vista, the registry tweaks are applied
 uniformly to the active device, which applies to all outputs on that
 device.</p>
 
+<br />
+
  <a name="download" id="download"><hr /></a>
  
 <h2>Download</h2>
@@ -61,7 +63,7 @@ device.</p>
 <h3>Internet Explorer: Right-click and select 'Save Target As...'</h3>
 <h3>Firefox: Right-click and select 'Save Link As...'</h3>
 
-<h1><a href="ATI_HD_Reg_Tweaks_0.14.vbs">Download ATI HD Registry Tweaks 0.14</a></h1>
+<h1><a href="ATI_HD_Reg_Tweaks_0.15.vbs">Download ATI HD Registry Tweaks 0.15</a></h1>
 
 <p>This is a program written in VBScript. You can view the source code in your browser
 or in any text editor. If you double-click it, it will run using the Windows Script Host,
@@ -69,6 +71,8 @@ included with every version of Windows. Your anti-virus software may bark when y
 or attempt to run this, because VBScript is fairly powerful and .vbs files have been used
 to do some malicious things in the past. I have no malicious intentions, so I suggest you
 let the program run, but if you're uncomfortable doing it, don't.</p>
+
+<br />
 
 <a name="details" id="details"><hr /></a>
 
@@ -92,6 +96,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <hr />
 
+<br />
+
 <h2>Details</h2>
 
 <p>See <a href="http://www.avsforum.com/avs-vb/showpost.php?p=11622510&amp;postcount=2011">
@@ -102,37 +108,51 @@ arfster's AVS Forum post</a> for details on the effects of each setting.</p>
 
  <p>The following registry settings are applied:</p>
 
- <h3>All HD2000 & HD3000 Models</h3>
- <p>"DXVA_DetailEnhance"="0"<br>
- "DXVA_NOHDDECODE"="0"<br>
-"DXVA_WMV_NA"="0" <br>
-"HWUVD_ForceMPEG2"="1"<br>
-"SORTOverrideVidSizeCaps"="2800000"<br>
-"TrDenoise"="0"<br>
-"UseBT601CSC"="1"<br>
-"VForceMaxResSize"="2800000"<br>
-"VForceUVDVC1"="1"<br>
-"VForceUVDH264"="1"<br>
+ <h3>All HD2000, HD3000 &amp; HD4000 Models</h3>
+ <p><ul>
+	<li>"Denoise_NA" = "0" - Enables the Denoise slider in the CCC.</li>
+	<li>"Detail_NA" = "0" - Enables the Detail slider in the CCC.</li>
+	<li>"DXVA_DetailEnhance" = "0" - Disables detail (edge) enhancement.</li>
+	<li>"DXVA_NOHDDECODE" = "0" - Enables HD MPEG2 decoding.</li>
+	<li>"DXVA_WMV_NA" = "0" - Enables WMV acceleration checkbox.</li>
+	<li>"HWUVD_ForceMPEG2" = "1" - Enables MPEG2 decoding using VMR9 with dual displays.</li>
+	<li>"SORTOverrideVidSizeCaps" = "2800000" - Enables fullscreen decoding for 1080p displays (applies to Catalyst 7.7 and earlier).</li>
+	<li>"TrDenoise" = "0" - Disables denoising for both HD and SD.</li>
+	<li>"UseBT601CSC" = "1" - Enables use of consistent colorspaces for HD and SD.</li>
+	<li>"VForceHDDenoise" = "0" - Disables denoising only for HD formats.</li>
+	<li>"VForceMaxResSize" = "2800000" - Enables fullscreen decoding for 1080p displays (applies to Catalyst 7.8 and later).</li>
+	<li>"VForceUVDH264" = "1" - Enables H.264 decoding with dual displays.</li>
+	<li>"VForceUVDVC1" = "1" - Enables VC-1 decoding with dual displays.</li>
+	</ul>
 </p>
 
 <h3>HD2400 Model Only</h3>
- <p>"DXVA_Only24FPS1080MPEG2"="0"<br>
-"DXVA_Only24FPS1080H264"="0"<br>
-"DXVA_Only24FPS1080VC1"="0"<br>
-"SORTOverrideFPSCaps"="0"<br>
-"VForce24FPS1080MPEG2"="0"<br>
-"VForce24FPS1080H264"="0"<br>
-"VForce24FPS1080VC1"="0"</p>
+<p><ul>
+	<li>"DXVA_Only24FPS1080MPEG2" = "0" - Enables MPEG2 decoding for formats other than 1080@24fps.</li>
+	<li>"DXVA_Only24FPS1080H264" = "0" - Enables H.264 decoding for formats other than 1080@24fps.</li>
+	<li>"DXVA_Only24FPS1080VC1" = "0" - Enables VC-1 decoding for formats other than 1080@24fps.</li>
+	<li>"SORTOverrideFPSCaps" = "0" - Enables decoding for various framerates (applies to Catalyst 7.7 and earlier).</li>
+	<li>"VForce24FPS1080MPEG2" = "0" - Enables MPEG2 decoding for formats other than 1080@24fps.</li>
+	<li>"VForce24FPS1080H264" = "0" - Enables H.264 decoding for formats other than 1080@24fps.</li>
+	<li>"VForce24FPS1080VC1" = "0" - Enables VC-1 decoding for formats other than 1080@24fps.</li>
+	<li>"VForceDeint" = "6" - Enables all deinterlacing modes (Motion Adaptive, Vector Adaptive).</li>
+	</ul>
+</p>
 
-<h3>HD2600 &amp; HD3000 Models Only</h3>
-<p>"ColorVibrance_DEF"="0"<br>
-"ColorVibrance_DE_MIN"="0"<br>
-"ColorVibrance_NA"="0"<br>
-"DI_METHOD"="5"<br>
-"DI_METHOD_DEF"="5"<br>
-"Fleshtone_DEF"="0"<br>
-"Fleshtone_DE_MIN"="0"<br>
-"Fleshtone_NA"="0"</p>
+<h3>HD2600, HD3000 &amp; HD4000 Models Only</h3>
+<p><ul>
+	<li>"ColorVibrance_DEF" = "0" - Disables Color Vibrance control (must also use ColorVibrance_DE_MIN).</li>
+	<li>"ColorVibrance_DE_MIN" = "0" - Disables Color Vibrance control (must also use ColorVibrance_DEF).</li>
+	<li>"ColorVibrance_NA" = "0" - Enables the Color Vibrance slider in the CCC.</li>
+	<li>"DI_METHOD" = "5" - Enables Vector Adaptive deinterlacing (must also use DI_METHOD_DEF).</li>
+	<li>"DI_METHOD_DEF" = "5" - Enables Vector Adaptive deinterlacing (must also use DI_METHOD).</li>
+	<li>"Fleshtone_DEF" = "0" - Disables Fleshtone control (must also use Fleshtone_DE_MIN).</li>
+	<li>"Fleshtone_DE_MIN" = "0" - Disables Fleshtone control (must also use Fleshtone_DEF).</li>
+	<li>"Fleshtone_NA" = "0" - Enables the Fleshtone slider in the CCC.</li>
+	</ul>
+</p>
+
+<br />
 
  <a name="AGP" id="AGP"><hr /></a>
  
@@ -286,7 +306,16 @@ In the ATI CCC, try disabling pulldown detection .</p>
 	<br />
 
 <h2>Changelog</h2>
-
+
+<p>2008-09-05 0.15<br>
+<ul><li>Added short descriptions to the dialog box for each registry setting.</li>
+<li>Added check for null values before attempting to delete HD2400 registry values.</li>
+<li>Added mention of ATI HD4000 series to use HD2600, HD3000 settings.</li>
+<li>Added Denoise_NA=0.</li>
+<li>Added Detail_NA=0.</li>
+<li>Added VForceDeint=6.</li>
+<li>Added VForceHDDenoise=0.</li>
+</ul></p>
 <p>2008-04-16 0.14<br>
 <ul><li>Added the ability to delete individual or all registry entries for a device.</li></ul>
 </p>
