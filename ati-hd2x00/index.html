@@ -36,7 +36,7 @@
 
  <p>To make it more complicated:<br>
  <br>
- If you want to add a level of verification that you have the correct video device,
+ Under Windows XP / MCE, if you want to add a level of verification that you have the correct video device,
  open the ATI Catalyst Control Center, and select the
  Information Center &gt; Graphics Software section. The 2D Driver Path
  will show the GUID (the number between the curly brackets, "{}")
@@ -45,14 +45,17 @@
  GUID for your active video device, approve that device to add
  the registry settings.</p>
 
- <p>Note, however, that in Windows Vista the path in the CCC will not always match the
- one reported by this program, but the GUID should be the same.</p>
+ <p>Under Windows Vista, the path in the CCC will not match the
+ one reported by this program, because it uses a different registry key that
+ mirrors to the one listed in the CCC.</p>
 
  <p>You will be prompted to approve the correct video device before
  anything in the registry is changed. To add settings for multiple
  devices, simply re-run the program and select a different device.
- For each device, the registry tweaks will be applied to both
- outputs 0000 and 0001.</p>
+ In Windows XP / MCE, the registry tweaks will be applied to all outputs,
+e.g., 0000 and 0001. In Windows Vista, the registry tweaks are applied
+uniformly to the active device, which applies to all outputs on that
+device.</p>
 
  <a name="download" id="download"><hr /></a>
 
@@ -60,7 +63,7 @@
 <h3>Internet Explorer: Right-click and select 'Save Target As...'</h3>
 <h3>Firefox: Right-click and select 'Save Link As...'</h3>
 
-<h1><a href="ATI_HD2x00_Reg_Tweaks_0.11.vbs">Download ATI HD2x00 Registry Tweaks 0.11</a></h1>
+<h1><a href="ATI_HD2x00_Reg_Tweaks_0.12.vbs">Download ATI HD2x00 Registry Tweaks 0.12</a></h1>
 
 <p>This is a program written in VBScript. You can view the source code in your browser
 or in any text editor. If you double-click it, it will run using the Windows Script Host,
@@ -86,9 +89,12 @@ arfster's AVS Forum post</a> for details on the effects of each setting.</p>
 "SORTOverrideVidSizeCaps"="2800000"<br>
 "TrDenoise"="0"<br>
 "UseBT601CSC"="1"<br>
-"VForceMaxResSize"="2800000"</p>
+"VForceMaxResSize"="2800000"<br>
+"VForceUVDVC1"="1"<br>
+"VForceUVDH264"="1"<br>
+"HWUVD_ForceMPEG2"="1"</p>
 
- <h3>HD2400 Only</h3>
+<h3>HD2400 Only</h3>
  <p>"DXVA_Only24FPS1080MPEG2"="0"<br>
 "DXVA_Only24FPS1080H264"="0"<br>
 "DXVA_Only24FPS1080VC1"="0"<br>
@@ -185,6 +191,13 @@ In the ATI CCC, try disabling pulldown detection .</p>
 
 <h2>Changelog:</h2>
 
+<p>2008-02-23 0.12<br>
+Modified implementation for Vista to use different registry keys under HKLM\System\CurrentControlSet\Control\Class.
+Applying the settings once there should mirror the settings to Control\Video for all ports of the device.<br>
+Added links to resources on UAC if permissions prevent adding reg values under Vista.<br>
+Added: "VForceUVDVC1"="1", "VForceUVDH264"="1", "HWUVD_ForceMPEG2"="1"
+</p>
+
 <p>2007-10-31 0.11:<br>
 Added support for all video device numbers, not just "0000" and "0001".<br>
 Fixed final "Done" dialog to work properly under Vista.<br>
@@ -240,7 +253,7 @@ Adds settings for both primary and secondary video devices.
 document.write((new Date(document.lastModified)).toUTCString());
 </script></p>
 
-<p><img src="/~exdeus/site/exec/counter.cgi" border="0" height="48" width="48"></p>
+<p><img src="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi" border="0" height="48" width="48"></p>
 
 <a name="guestbook" id="guestbook"><h3 style="font-weight:bold;text-align:center">Please sign the guest book! Provide any feedback you feel to be worthwhile.</h3></a>
 
