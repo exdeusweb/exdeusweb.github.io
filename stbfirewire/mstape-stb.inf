@@ -1,0 +1,940 @@
+;
+; Copyright (c) 2000-2001, Microsoft Corporation
+;
+; MSTape.INF -- Modified by ExDeus for STBs
+;
+;     This file contains installation information to install an IEEE 1394 Tape Subunit driver
+;	  for Tuner Subunit devices.
+;
+; Changes log:
+;
+;     Created 12-4-2000; support D-VHS device
+;     4-25-2001: Install NULL driver for selective Panasonic subunit not yet supported.
+;
+; Lineage from frestb.inf for Panasonic DVHS drivers:
+; 2007-05-15	Added Motorola DCT-3416	-ExDeus
+; 2007-05-16	Added SciAtl Explorer 4250HD	-ExDeus
+; 2007-06-04	Added Motorola QIP-6416	-ExDeus
+; 2007-06-05	Added generic Sci Atl and Moto IDs	-ExDeus
+; 2007-06-06	Added Pace box. Loaded AVCSTRM (avcstrm.sys) in all AV/C Tuner instances, in lieu of MEISTRM (meistrm.sys).	-ExDeus
+; 2007-08-01	Added LG 50PX4DR HDTV DVR. Removed meistrm.sys from loading, though left it in the driver package.	-ExDeus
+; 2007-08-04	Added DCH-6416 & DCH-3416.	-ExDeus
+; 2007-08-07	Added SA "4300" as PnP identifier for 4250HD.	-ExDeus
+; 2007-10-25	Added Moto DCH-3200.	-ExDeus
+;
+; New lineage for mstape-stb.inf using Microsoft DVHS drivers:
+; 2007-11-19	Initial release.
+;
+
+[Version]
+LayoutFile=Layout.inf
+signature="$CHICAGO$"
+Class=AVC
+ClassGuid={C06FF265-AE09-48f0-812C-16753D7CBA83}
+Provider=%Msft%
+DriverVer=08/03/2004,5.3.2600.2180
+
+[ControlFlags]
+; All PnP devices should be excluded from manual AddDevice Applet list
+ExcludeFromSelect=*
+
+
+[Manufacturer]
+%Generic%=Generic
+%Unknown%=Unknown
+%Scientific-Atlanta%=Scientific-Atlanta
+%Motorola%=Motorola
+%Pace%=Pace
+%LGE%=LGE
+
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+MSTAPE.DelDrivers=10,system
+MSTAPE.CopyDrivers=10,system32\drivers
+MSTAPE.CopyCODEC=11
+
+
+
+;---------------------------------------------------------------
+;                        G E N E R I C
+;
+;                      AV/C Tuner Subunit
+;---------------------------------------------------------------
+
+
+[Generic]
+%AVC\TYP_5.DeviceDesc%=MSTAPE.Generic,AVC\TYP_5      ; Tuner
+
+
+[MSTAPE.Generic]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers, MSTAPE.CopyCODEC
+
+[MSTAPE.Generic.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers, MSTAPE.CopyCODEC
+
+
+[MSTAPE.Generic.HW]
+AddReg=MSTAPE_AddFilter_W9x
+[MSTAPE.Generic.NT.HW]
+AddReg=MSTAPE_AddFilter_NT
+
+
+[MSTAPE.Generic.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.Generic.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.Generic.Interface2
+
+[MSTAPE.Generic.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.Generic.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.Generic.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.Generic.Interface2
+
+
+[MSTAPE.Generic.Interface1]
+AddReg=MSTAPE.Generic.Intf.AddReg1
+
+[MSTAPE.Generic.Intf.AddReg1]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSTAPE.Generic.Capture%
+HKR,,Description,, %MSTAPE.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+
+[MSTAPE.Generic.Interface2]
+AddReg=MSTAPE.Generic.Intf.AddReg2
+
+[MSTAPE.Generic.Intf.AddReg2]
+HKR,,CLSID,,%ProxyXBar.CLSID%
+HKR,,FriendlyName,,%MSTAPE.Generic.Crossbar%
+
+
+[MSTAPE.Generic.NT.Services]
+AddService = MSTAPE,0x00000002,MSTAPE_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall
+
+
+;---------------------------------------------------------------
+;                        U N K N O W N
+;
+;                      IEEE 1394 Device
+;---------------------------------------------------------------
+
+[Unknown]
+%1394\5068&10101.DeviceDesc%=NODRV,1394\5068&10101		; load NULL driver
+%1394\989&100.DeviceDesc%=NODRV,1394\989&100			; load NULL driver
+
+
+[NODRV]
+
+[NODRV.Services]
+;
+; this is blank to just allow the install to succeed
+;
+AddService = , 0x00000002   ; null service install
+
+
+
+;---------------------------------------------------------------
+;                S c i e n t i f i c  A t l a n t a
+;
+;                      AV/C Tuner Subunit
+;---------------------------------------------------------------
+
+
+[Scientific-Atlanta]
+%AVC\Scientific-Atlanta__Inc.&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_9&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_5&ID_0.DeviceDesc%=MSTAPE.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8301&TYP_5&ID_0
+%AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_9&ID_0.DeviceDesc%=MSPANEL.SA,AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8301&TYP_9&ID_0
+
+[MSTAPE.SA]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSTAPE.SA.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+
+[MSTAPE.SA.HW]
+AddReg=MSTAPE_AddFilter_W9x
+[MSTAPE.SA.NT.HW]
+AddReg=MSTAPE_AddFilter_NT
+
+
+[MSTAPE.SA.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.SA.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.SA.Interface2
+
+[MSTAPE.SA.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.SA.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.SA.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.SA.Interface2
+
+
+[MSTAPE.SA.Interface1]
+AddReg=MSTAPE.SA.Intf.AddReg1
+
+[MSTAPE.SA.Intf.AddReg1]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSTAPE.SA.Capture%
+HKR,,Description,, %MSTAPE.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+
+[MSTAPE.SA.Interface2]
+AddReg=MSTAPE.SA.Intf.AddReg2
+
+[MSTAPE.SA.Intf.AddReg2]
+HKR,,CLSID,,%ProxyXBar.CLSID%
+HKR,,FriendlyName,,%MSTAPE.SA.Crossbar%
+
+
+[MSTAPE.SA.NT.Services]
+AddService = MSTAPE,0x00000002,MSTAPE_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall	; Instead, load Microsoft stream driver
+
+[MSPANEL.SA]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.SA.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.SA.HW]
+AddReg=MSPANEL_AddFilter_W9x
+[MSPANEL.SA.NT.HW]
+AddReg=MSPANEL_AddFilter_NT
+
+[MSPANEL.SA.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.SA.Interface
+
+[MSPANEL.SA.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.SA.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.SA.Interface
+
+[MSPANEL.SA.Interface]
+AddReg=MSPANEL.SA.Intf.AddReg
+
+[MSPANEL.SA.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSPANEL.SA.Capture%
+HKR,,Description,, %MSPANEL.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+
+[MSPANEL.SA.NT.Services]
+AddService = MSPANEL,0x00000002,MSPANEL_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall
+
+
+;---------------------------------------------------------------
+;                       M o t o r o l a
+;
+;                      AV/C Tuner Subunit
+;---------------------------------------------------------------
+
+
+[Motorola]
+%AVC\MOTOROLA&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&TYP_5&ID_0
+%AVC\MOTOROLA&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCT-XXXX&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-XXXX&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-XXXX&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&dct-XXXX&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCH-3200&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCH-3200&TYP_5&ID_0
+%AVC\MOTOROLA&DCH-3200&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&DCH-3200&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCH-3416&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCH-3416&TYP_5&ID_0
+%AVC\MOTOROLA&DCH-3416&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&DCH-3416&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCT-3412&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-3412&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-3412&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&DCT-3412&TYP_9&ID_0
+%AVC\MOTOROLA&DCT-3416&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-3416&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-3416&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&DCT-3416&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCT-6200&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-6200&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-6200&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&dct-6200&TYP_9&ID_0
+%AVC\MOTOROLA&QIP-6200&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&QIP-6200&TYP_5&ID_0
+%AVC\MOTOROLA&QIP-6200&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&QIP-6200&TYP_9&ID_0
+%AVC\MOTOROLA&DCT-6208&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-6208&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-6208&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&dct-6208&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCH-6416&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCH-6416&TYP_5&ID_0
+%AVC\MOTOROLA&DCH-6416&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&DCH-6416&TYP_9&ID_0
+
+%AVC\MOTOROLA&DCT-6412&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-6412&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-6412&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&dct-6412&TYP_9&ID_0
+%AVC\MOTOROLA&DCT-6416&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&DCT-6416&TYP_5&ID_0
+%AVC\MOTOROLA&DCT-6416&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\Motorola&dct-6416&TYP_9&ID_0
+%AVC\MOTOROLA&QIP-6416&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&QIP-6416&TYP_5&ID_0
+%AVC\MOTOROLA&QIP-6416&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&QIP-6416&TYP_9&ID_0
+
+%AVC\MOTOROLA&9012&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&9012&TYP_5&ID_0
+%AVC\MOTOROLA&9012&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&9012&TYP_9&ID_0
+%AVC\MOTOROLA&9022&TYP_5&ID_0.DeviceDesc%=MSTAPE.MOTO,AVC\MOTOROLA&9022&TYP_5&ID_0
+%AVC\MOTOROLA&9022&TYP_9&ID_0.DeviceDesc%=MSPANEL.MOTO,AVC\MOTOROLA&9022&TYP_9&ID_0
+
+
+[MSTAPE.MOTO]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSTAPE.MOTO.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+
+[MSTAPE.MOTO.HW]
+AddReg=MSTAPE_AddFilter_W9x
+[MSTAPE.MOTO.NT.HW]
+AddReg=MSTAPE_AddFilter_NT
+
+
+[MSTAPE.MOTO.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.MOTO.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.MOTO.Interface2
+
+[MSTAPE.MOTO.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.MOTO.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.MOTO.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.MOTO.Interface2
+
+
+[MSTAPE.MOTO.Interface1]
+AddReg=MSTAPE.MOTO.Intf.AddReg1
+
+[MSTAPE.MOTO.Intf.AddReg1]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSTAPE.MOTO.Capture%
+HKR,,Description,, %MSTAPE.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+HKR,Capabilities,"{BB4FAA02-596C-4129-8FB3-74E75421FA02}",0x00010001,1
+
+
+[MSTAPE.MOTO.Interface2]
+AddReg=MSTAPE.MOTO.Intf.AddReg2
+
+[MSTAPE.MOTO.Intf.AddReg2]
+HKR,,CLSID,,%ProxyXBar.CLSID%
+HKR,,FriendlyName,,%MSTAPE.MOTO.Crossbar%
+
+
+[MSTAPE.MOTO.NT.Services]
+AddService = MSTAPE,0x00000002,MSTAPE_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall	; Instead, load Microsoft stream driver
+
+[MSPANEL.MOTO]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.MOTO.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.MOTO.HW]
+AddReg=MSPANEL_AddFilter_W9x
+[MSPANEL.MOTO.NT.HW]
+AddReg=MSPANEL_AddFilter_NT
+
+[MSPANEL.MOTO.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.MOTO.Interface
+
+[MSPANEL.MOTO.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.MOTO.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.MOTO.Interface
+
+[MSPANEL.MOTO.Interface]
+AddReg=MSPANEL.MOTO.Intf.AddReg
+
+[MSPANEL.MOTO.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSPANEL.MOTO.Capture%
+HKR,,Description,, %MSPANEL.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+[MSPANEL.MOTO.NT.Services]
+AddService = MSPANEL,0x00000002,MSPANEL_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall
+
+
+;---------------------------------------------------------------
+;                           P a c e
+;
+;                      AV/C Tuner Subunit
+;---------------------------------------------------------------
+
+
+[Pace]
+%AVC\pace_micro_technology_(plc)&TYP_5&ID_0.DeviceDesc%=MSTAPE.PACE,AVC\pace_micro_technology_(plc)&TYP_5&ID_0
+%AVC\pace_micro_technology_(plc)&TYP_9&ID_0.DeviceDesc%=MSPANEL.PACE,AVC\pace_micro_technology_(plc)&TYP_9&ID_0
+
+%AVC\pace_micro_technology_(plc)&laguna&typ_5&id_0.DeviceDesc%=MSTAPE.PACE,AVC\pace_micro_technology_(plc)&laguna&typ_5&id_0
+%AVC\pace_micro_technology_(plc)&laguna&typ_9&id_0.DeviceDesc%=MSPANEL.PACE,AVC\pace_micro_technology_(plc)&laguna&typ_9&id_0
+
+[MSTAPE.PACE]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSTAPE.PACE.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSTAPE.PACE.HW]
+AddReg=MSTAPE_AddFilter_W9x
+[MSTAPE.PACE.NT.HW]
+AddReg=MSTAPE_AddFilter_NT
+
+[MSTAPE.PACE.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.PACE.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.PACE.Interface2
+
+[MSTAPE.PACE.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.PACE.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.PACE.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.PACE.Interface2
+
+[MSTAPE.PACE.Interface1]
+AddReg=MSTAPE.PACE.Intf.AddReg1
+
+[MSTAPE.PACE.Intf.AddReg1]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSTAPE.PACE.Capture%
+HKR,,Description,, %MSTAPE.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+[MSTAPE.PACE.Interface2]
+AddReg=MSTAPE.PACE.Intf.AddReg2
+
+[MSTAPE.PACE.Intf.AddReg2]
+HKR,,CLSID,,%ProxyXBar.CLSID%
+HKR,,FriendlyName,,%MSTAPE.PACE.Crossbar%
+
+[MSTAPE.PACE.NT.Services]
+AddService = MSTAPE,0x00000002,MSTAPE_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall	; Instead, load Microsoft stream driver
+
+[MSPANEL.PACE]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.PACE.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.PACE.HW]
+AddReg=MSPANEL_AddFilter_W9x
+[MSPANEL.PACE.NT.HW]
+AddReg=MSPANEL_AddFilter_NT
+
+[MSPANEL.PACE.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.PACE.Interface
+
+[MSPANEL.PACE.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.PACE.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.PACE.Interface
+
+[MSPANEL.PACE.Interface]
+AddReg=MSPANEL.PACE.Intf.AddReg
+
+[MSPANEL.PACE.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSPANEL.PACE.Capture%
+HKR,,Description,, %MSPANEL.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+[MSPANEL.PACE.NT.Services]
+AddService = MSPANEL,0x00000002,MSPANEL_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall
+
+
+;---------------------------------------------------------------
+;                        LG Electronics
+;
+;                      AV/C Tuner Subunit
+;---------------------------------------------------------------
+
+
+[LGE]
+%AVC\LGE&TYP_5&ID_0.DeviceDesc%=MSTAPE.LGE,AVC\LGE&TYP_5&ID_0
+%AVC\LGE&TYP_9&ID_0.DeviceDesc%=MSTAPE.LGE,AVC\LGE&TYP_9&ID_0
+
+%AVC\LGE&50PX4DR-UA&TYP_5&ID_0.DeviceDesc%=MSTAPE.LGE,AVC\LGE&50PX4DR-UA&TYP_5&ID_0
+%AVC\LGE&50PX4DR-UA&TYP_9&ID_0.DeviceDesc%=MSTAPE.LGE,AVC\LGE&50PX4DR-UA&TYP_9&ID_0
+
+[MSTAPE.LGE]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSTAPE.LGE.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+
+[MSTAPE.LGE.HW]
+AddReg=MSTAPE_AddFilter_W9x
+[MSTAPE.LGE.NT.HW]
+AddReg=MSTAPE_AddFilter_NT
+
+
+[MSTAPE.LGE.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.LGE.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.LGE.Interface2
+
+[MSTAPE.LGE.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSTAPE.LGE.Interface1
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSTAPE.LGE.Interface1
+;AddInterface=%KSCATEGORY_CROSSBAR%,GLOBAL,  MSTAPE.LGE.Interface2
+
+
+[MSTAPE.LGE.Interface1]
+AddReg=MSTAPE.LGE.Intf.AddReg1
+
+[MSTAPE.LGE.Intf.AddReg1]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSTAPE.LGE.Capture%
+HKR,,Description,, %MSTAPE.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+HKR,Capabilities,"{BB4FAA02-596C-4129-8FB3-74E75421FA02}",0x00010001,1
+
+
+[MSTAPE.LGE.Interface2]
+AddReg=MSTAPE.LGE.Intf.AddReg2
+
+[MSTAPE.LGE.Intf.AddReg2]
+HKR,,CLSID,,%ProxyXBar.CLSID%
+HKR,,FriendlyName,,%MSTAPE.LGE.Crossbar%
+
+
+[MSTAPE.LGE.NT.Services]
+AddService = MSTAPE,0x00000002,MSTAPE_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall	; Instead, load Microsoft stream driver
+
+[MSPANEL.LGE]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration
+AddReg=     MSTAPE.AddRegW9x,MSTAPE.AddReg,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+DelFiles=   MSTAPE.DelDrivers
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.LGE.NT]
+Include=    ks.inf, kscaptur.inf
+Needs=      KS.Registration,KSCAPTUR.Registration.NT
+AddReg=     MSTAPE.AddReg,MSTAPE.PinNames,MSTAPE.PlugIns
+UpdateInis= MSTAPE.UpdateIni
+CopyFiles=  MSTAPE.CopyDrivers,MSTAPE.CopyCODEC
+
+[MSPANEL.LGE.HW]
+AddReg=MSPANEL_AddFilter_W9x
+[MSPANEL.LGE.NT.HW]
+AddReg=MSPANEL_AddFilter_NT
+
+[MSPANEL.LGE.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.LGE.Interface
+
+[MSPANEL.LGE.NT.Interfaces]
+AddInterface=%KSCATEGORY_VIDEO%,GLOBAL,     MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_CAPTURE%,GLOBAL,   MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_RENDER%,GLOBAL,    MSPANEL.LGE.Interface
+AddInterface=%KSCATEGORY_RENDER_EXT%,GLOBAL,MSPANEL.LGE.Interface
+
+[MSPANEL.LGE.Interface]
+AddReg=MSPANEL.LGE.Intf.AddReg
+
+[MSPANEL.LGE.Intf.AddReg]
+HKR,,CLSID,,%ProxyVCap.CLSID%
+HKR,,FriendlyName,,%MSPANEL.LGE.Capture%
+HKR,,Description,, %MSPANEL.Capture%
+HKR,,DeviceClassGUID,,%TunerDeviceGUID%
+
+[MSPANEL.LGE.NT.Services]
+AddService = MSPANEL,0x00000002,MSPANEL_ServiceInstall  ; 0x00000002 to indicate functional driver
+AddService = AVCSTRM,,AVCSTRM_ServiceInstall
+
+
+;---------------------------------------------------------------
+;                C o m m o n     S e c t i o n s
+;---------------------------------------------------------------
+
+
+[MSTAPE.AddRegW9x]
+; Win9X use NTKERN but Win2000 use the .Service section to load driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,MsTape.sys
+
+[MSTAPE.AddReg]
+HKR,,OkToHibernate,3,01
+HKR,,HardwareConfig,1,1
+HKR,,USDClass,,"{0527d1d0-88c2-11d2-82c7-00c04f8ec183}"
+
+
+[MSTAPE.PinNames]
+; MPEG2TS pin name
+HKLM,%MediaCategories%\%GUID.MPEG2TSOutput%,Name,,%Pin.MPEG2TSOutput%
+HKLM,%MediaCategories%\%GUID.MPEG2TSOutput%,Display,1,00,00,00,00
+
+HKLM,%MediaCategories%\%GUID.MPEG2TSInput%,Name,,%Pin.MPEG2TSInput%
+HKLM,%MediaCategories%\%GUID.MPEG2TSInput%,Display,1,00,00,00,00
+
+
+[MSTAPE.PlugIns]
+;IAMExtDevice
+HKCR,CLSID\{B5730A90-1A2C-11cf-8C23-00AA006B6814},,,%PlugIn_IAMExtDevice%
+HKCR,CLSID\{B5730A90-1A2C-11cf-8C23-00AA006B6814}\InprocServer32,,,kswdmcap.ax
+HKCR,CLSID\{B5730A90-1A2C-11cf-8C23-00AA006B6814}\InprocServer32,ThreadingModel,,Both
+; This IID is aggregated for the filter given the CLSID of the property set
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{B5730A90-1A2C-11cf-8C23-00AA006B6814},,,%PlugIn_IAMExtDevice%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{B5730A90-1A2C-11cf-8C23-00AA006B6814},IID,1,90,0A,73,B5,2C,1A,cf,11,8C,23,00,AA,00,6B,68,14
+
+
+;IAMExtTransport
+HKCR,CLSID\{A03CD5F0-3045-11cf-8C44-00AA006B6814},,,%PlugIn_IAMExtTransport%
+HKCR,CLSID\{A03CD5F0-3045-11cf-8C44-00AA006B6814}\InprocServer32,,,kswdmcap.ax
+HKCR,CLSID\{A03CD5F0-3045-11cf-8C44-00AA006B6814}\InprocServer32,ThreadingModel,,Both
+; This IID is aggregated for the filter given the CLSID of the property set
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{A03CD5F0-3045-11cf-8C44-00AA006B6814},,,%PlugIn_IAMExtTransport%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{A03CD5F0-3045-11cf-8C44-00AA006B6814},IID,1,F0,D5,3C,A0,45,30,cf,11,8C,44,00,AA,00,6B,68,14
+
+
+;IAMTimecodeReader            
+HKCR,CLSID\{9B496CE1-811B-11cf-8C77-00AA006B6814},,,%PlugIn_IAMTimecodeReader%
+HKCR,CLSID\{9B496CE1-811B-11cf-8C77-00AA006B6814}\InprocServer32,,,kswdmcap.ax
+HKCR,CLSID\{9B496CE1-811B-11cf-8C77-00AA006B6814}\InprocServer32,ThreadingModel,,Both
+; This IID is aggregated for the filter given the CLSID of the property set
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{9B496CE1-811B-11cf-8C77-00AA006B6814},,,%PlugIn_IAMTimecodeReader%
+HKLM,System\CurrentControlSet\Control\MediaInterfaces\{9B496CE1-811B-11cf-8C77-00AA006B6814},IID,1,E1,6C,49,9B,1B,81,cf,11,8C,77,00,AA,00,6B,68,14
+
+
+;
+; Property Pages
+;
+
+; TunerControl Property Page
+HKCR,CLSID\{81e9dd62-78d5-11d2-b47e-006097b3391b},,,%PropPage_TunerControl%
+HKCR,CLSID\{81e9dd62-78d5-11d2-b47e-006097b3391b}\InprocServer32,,,kswdmcap.ax
+HKCR,CLSID\{81e9dd62-78d5-11d2-b47e-006097b3391b}\InprocServer32,ThreadingModel,,Both
+;
+; Associate the property set with the above property page
+;
+; IAMExtDevice and IAMExttransport
+; all use the same property pages.
+;
+HKLM,System\CurrentControlSet\Control\MediaSets\{B5730A90-1A2C-11cf-8C23-00AA006B6814}\PropertyPages\{81e9dd62-78d5-11d2-b47e-006097b3391b},,,%PropPage_TunerControl%
+HKLM,System\CurrentControlSet\Control\MediaSets\{A03CD5F0-3045-11cf-8C44-00AA006B6814}\PropertyPages\{81e9dd62-78d5-11d2-b47e-006097b3391b},,,%PropPage_TunerControl%
+HKLM,System\CurrentControlSet\Control\MediaSets\{9B496CE1-811B-11cf-8C77-00AA006B6814}\PropertyPages\{81e9dd62-78d5-11d2-b47e-006097b3391b},,,%PropPage_TunerControl%
+
+[MSTAPE.UpdateIni]
+system.ini, drivers32,,"VIDC.UYVY=msyuv.dll"
+
+[MSTAPE.DelDrivers]
+ks.sys,,,1
+stream.sys,,,1
+mstape.sys,,,1
+
+[MSTAPE.CopyDrivers]
+stream.sys
+mstape.sys
+avcstrm.sys
+
+[MSTAPE.CopyCODEC]
+msyuv.dll
+
+
+[MSTAPE_AddFilter_W9x]
+HKR,,"LowerFilters",0x00010000,"avcstrm.sys"  ; Win9X use this "avcstrm.sys" as the driver name ?
+[MSTAPE_AddFilter_NT]
+HKR,,"LowerFilters",0x00010000,"AVCSTRM"      ; NT use this "AVCSTRM" as Service name
+[MSPANEL_AddFilter_W9x]
+HKR,,"LowerFilters",0x00010000,"avcstrm.sys"  ; Win9X use this "avcstrm.sys" as the driver name ?
+[MSPANEL_AddFilter_NT]
+HKR,,"LowerFilters",0x00010000,"AVCSTRM"      ; NT use this "AVCSTRM" as Service name
+
+
+[MSTAPE_ServiceInstall]
+; same service section
+DisplayName   = %MSTAPE.Capture%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\mstape.sys
+Dependencies  = AVCSTRM                       ; loaded before MSTAPE does!
+
+
+[MSPANEL_ServiceInstall]
+; same service section
+DisplayName   = %MSPANEL.Capture%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\mstapeo.sys
+Dependencies  = AVCSTRM                       ; loaded before MSTAPE does!
+
+
+[AVCSTRM_ServiceInstall]
+; same service section for the lower filter driver
+DisplayName   = %AVCSTRM.FILTER%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\avcstrm.sys
+LoadOrderGroup = Pnp Filter
+
+
+
+[Strings]
+
+;----------------
+; Non-Localizable
+;----------------
+
+; note: only register value is case sensitive, key is not.
+ProxyVCap.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+ProxyXBar.CLSID="{71F96460-78F3-11d0-A18C-00A0C9118956}"
+MediaCategories="System\CurrentControlSet\Control\MediaCategories"
+GUID.MPEG2TSOutput="{2CFF7B83-96F1-47e3-98EC-57BD8A997215}"
+GUID.MPEG2TSInput= "{CF4C59A3-ACE3-444b-8C37-0B22661A4A29}"
+
+KSCATEGORY_VIDEO=     "{6994AD05-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_CAPTURE=   "{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_RENDER=    "{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_RENDER_EXT="{cc7bfb41-f175-11d1-a392-00e0291f3959}"
+KSCATEGORY_CROSSBAR=  "{a799a801-a46d-11d0-a18c-00a02401dcd4}"
+
+Pin.MPEG2TSOutput="MPEG2TS Out(188N/192N)"
+Pin.MPEG2TSInput="MPEG2TS In(192N)"
+
+SERVICE_KERNEL_DRIVER=1
+; PnP should use demand start
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1
+
+MSTAPE.Capture="AVC MPEG2TS Tuner Subunit Device"
+MSPANEL.Capture="AVC Panel Device"
+AVCSTRM.FILTER="AVC Streaming Filter Driver" 
+
+; Do not Localize
+TunerDeviceGUID="{0BCE2396-A006-4237-A7D5-6155264D35F0}"
+
+;----------------
+; Localizable
+;----------------
+
+Msft="Microsoft"
+MEI="Matsushita Electronic Industrial"
+Generic="Generic"
+Scientific-Atlanta="Scientific-Atlanta"
+Motorola="Motorola"
+Pace="Pace"
+LGE="LG Electronics"
+;
+; Filter friendly name (not localize) and description (should be localized)
+;
+MSTAPE.Generic.Capture= "Digital AV/C Tuner Device"
+MSTAPE.Generic.Crossbar="Digital AV/C Crossbar Device"
+MSTAPE.SA.Capture=      "Scientific-Atlanta AV/C Tuner Device"
+MSTAPE.SA.Crossbar=     "Scientific-Atlanta AV/C Crossbar Device"
+MSTAPE.MOTO.Capture=    "Motorola AV/C Tuner Device"
+MSTAPE.MOTO.Crossbar=   "Motorola AV/C Crossbar Device"
+MSTAPE.PACE.Capture=    "Pace AV/C Tuner Device"
+MSTAPE.PACE.Crossbar=   "Pace AV/C Crossbar Device"
+MSTAPE.LGE.Capture=	"LG AV/C Tuner Device"
+MSTAPE.LGE.Crossbar=	"LG AV/C Crossbar Device"
+MSPANEL.SA.Capture=     "Scientific-Atlanta AV/C Panel Device"
+MSPANEL.MOTO.Capture=   "Motorola AV/C Panel Device"
+MSPANEL.PACE.Capture=   "Pace AV/C Panel Device"
+MSPANEL.LGE.Capture=	"LG AV/C Panel Device"
+;
+; Device description
+;
+
+AVC\TYP_5.DeviceDesc="AV/C Tuner Device"
+
+1394\5068&10101.DeviceDesc="Unknown IEEE 1394\5068 Device"
+1394\989&100.DeviceDesc="Unknown IEEE 1394\989 Device"
+
+AVC\Scientific-Atlanta__Inc.&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 3250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_3250HD&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 3250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 4200HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4200HD&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 4200HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 4250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4250HD&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 4250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 4250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_4300&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 4250HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 8000HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8000HD&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 8000HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_5&ID_0.DeviceDesc="Scientific-Atlanta AV/C Tuner Device (Explorer 8300HD)"
+AVC\Scientific-Atlanta__Inc.&EXPLORER(R)_8300HD&TYP_9&ID_0.DeviceDesc="Scientific-Atlanta AV/C Panel Device (Explorer 8300HD)"
+
+
+AVC\MOTOROLA&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device"
+AVC\MOTOROLA&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device"
+
+AVC\MOTOROLA&DCT-XXXX&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-XXXX)"
+AVC\MOTOROLA&DCT-XXXX&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-XXXX)"
+
+AVC\MOTOROLA&DCH-3200&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCH-3200)"
+AVC\MOTOROLA&DCH-3200&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCH-3200)"
+
+AVC\MOTOROLA&DCH-3416&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCH-3416)"
+AVC\MOTOROLA&DCH-3416&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCH-3416)"
+
+AVC\MOTOROLA&DCT-3412&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-3412)"
+AVC\MOTOROLA&DCT-3412&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-3412)"
+AVC\MOTOROLA&DCT-3416&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-3416)"
+AVC\MOTOROLA&DCT-3416&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-3416)"
+
+AVC\MOTOROLA&DCT-6200&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-6200)"
+AVC\MOTOROLA&DCT-6200&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-6200)"
+AVC\MOTOROLA&QIP-6200&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (QIP-6200)"
+AVC\MOTOROLA&QIP-6200&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (QIP-6200)"
+AVC\MOTOROLA&DCT-6208&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-6208)"
+AVC\MOTOROLA&DCT-6208&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-6208)"
+
+AVC\MOTOROLA&DCH-6416&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCH-6416)"
+AVC\MOTOROLA&DCH-6416&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCH-6416)"
+
+AVC\MOTOROLA&DCT-6412&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-6412)"
+AVC\MOTOROLA&DCT-6412&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-6412)"
+AVC\MOTOROLA&DCT-6416&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (DCT-6416)"
+AVC\MOTOROLA&DCT-6416&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (DCT-6416)"
+AVC\MOTOROLA&QIP-6416&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (QIP-6416)"
+AVC\MOTOROLA&QIP-6416&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (QIP-6416)"
+
+AVC\MOTOROLA&9012&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (BMC9012)"
+AVC\MOTOROLA&9012&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (BMC9012)"
+AVC\MOTOROLA&9022&TYP_9&ID_0.DeviceDesc="Motorola AV/C Panel Device (BMC9022)"
+AVC\MOTOROLA&9022&TYP_5&ID_0.DeviceDesc="Motorola AV/C Tuner Device (BMC9022)"
+
+AVC\pace_micro_technology_(plc)&typ_5&id_0.DeviceDesc="Pace AV/C Tuner Device"
+AVC\pace_micro_technology_(plc)&typ_9&id_0.DeviceDesc="Pace AV/C Panel Device"
+
+AVC\pace_micro_technology_(plc)&laguna&typ_5&id_0.DeviceDesc="Pace AV/C Tuner Device (Laguna)"
+AVC\pace_micro_technology_(plc)&laguna&typ_9&id_0.DeviceDesc="Pace AV/C Panel Device (Laguna)"
+
+AVC\LGE&TYP_5&ID_0.DeviceDesc="LG AV/C Tuner Device"
+AVC\LGE&TYP_9&ID_0.DeviceDesc="LG AV/C Panel Device"
+AVC\LGE&50PX4DR-UA&TYP_5&ID_0.DeviceDesc="LG AV/C Tuner Device (50PX4DR-UA)"
+AVC\LGE&50PX4DR-UA&TYP_9&ID_0.DeviceDesc="LG AV/C Panel Device (50PX4DR-UA)"
+
+
+;
+; PlugIns descrioption
+;
+PlugIn_IAMExtDevice="WDM Streaming IAMExtDevice Interface Handler"
+PlugIn_IAMExtTransport="WDM Streaming IAMExtTransport Interface Handler"
+PlugIn_IAMTimecodeReader="WDM Streaming IAMTimecodeReader Interface Handler"
+PropPage_TunerControl="Tuner Subunit Device Control Property Page"
