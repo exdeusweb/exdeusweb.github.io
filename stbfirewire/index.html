@@ -1,1286 +1,2626 @@
 <html>
 
+
+
 <head>
+
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+
 <meta name=Generator content="Microsoft Word 12 (filtered)">
+
 <title>ExDeus' STB Firewire Driver Package</title>
+
 <style>
+
 <!--
+
  /* Font Definitions */
+
  @font-face
+
 	{font-family:"Cambria Math";
+
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
+
 @font-face
+
 	{font-family:Tahoma;
+
 	panose-1:2 11 6 4 3 5 4 4 2 4;}
+
 @font-face
+
 	{font-family:Verdana;
+
 	panose-1:2 11 6 4 3 5 4 4 2 4;}
+
 @font-face
+
 	{font-family:Consolas;
+
 	panose-1:2 11 6 9 2 2 4 3 2 4;}
+
  /* Style Definitions */
+
  p.MsoNormal, li.MsoNormal, div.MsoNormal
+
 	{margin:0in;
+
 	margin-bottom:.0001pt;
+
 	font-size:12.0pt;
+
 	font-family:"Times New Roman","serif";
+
 	color:windowtext;}
+
 h1
+
 	{mso-style-link:"Heading 1 Char";
+
 	margin-right:0in;
+
 	margin-left:0in;
+
 	font-size:24.0pt;
+
 	font-family:"Verdana","sans-serif";
+
 	color:navy;
+
 	font-weight:bold;}
+
 h2
+
 	{mso-style-link:"Heading 2 Char";
+
 	margin-right:0in;
+
 	margin-left:0in;
+
 	font-size:18.0pt;
+
 	font-family:"Verdana","sans-serif";
+
 	color:navy;
+
 	font-weight:bold;}
+
 h3
+
 	{mso-style-link:"Heading 3 Char";
+
 	margin-right:0in;
+
 	margin-left:0in;
+
 	font-size:13.5pt;
+
 	font-family:"Verdana","sans-serif";
+
 	color:navy;
+
 	font-weight:bold;}
+
 p.MsoToc1, li.MsoToc1, div.MsoToc1
+
 	{margin:0in;
+
 	margin-bottom:.0001pt;
+
 	font-size:12.0pt;
+
 	font-family:"Times New Roman","serif";
+
 	color:windowtext;}
+
 p.MsoToc2, li.MsoToc2, div.MsoToc2
+
 	{margin-top:0in;
+
 	margin-right:0in;
+
 	margin-bottom:0in;
+
 	margin-left:12.0pt;
+
 	margin-bottom:.0001pt;
+
 	font-size:12.0pt;
+
 	font-family:"Times New Roman","serif";
+
 	color:windowtext;}
+
 p.MsoToc3, li.MsoToc3, div.MsoToc3
+
 	{margin-top:0in;
+
 	margin-right:0in;
+
 	margin-bottom:0in;
+
 	margin-left:24.0pt;
+
 	margin-bottom:.0001pt;
+
 	font-size:12.0pt;
+
 	font-family:"Times New Roman","serif";
+
 	color:windowtext;}
+
 a:link, span.MsoHyperlink
+
 	{color:blue;
+
 	text-decoration:underline;}
+
 a:visited, span.MsoHyperlinkFollowed
+
 	{color:purple;
+
 	text-decoration:underline;}
+
 p
+
 	{margin-right:0in;
+
 	margin-left:0in;
+
 	font-size:10.0pt;
+
 	font-family:"Verdana","sans-serif";
+
 	color:navy;}
+
 pre
+
 	{mso-style-link:"HTML Preformatted Char";
+
 	margin:0in;
+
 	margin-bottom:.0001pt;
+
 	font-size:10.0pt;
+
 	font-family:"Courier New";
+
 	color:windowtext;}
+
 p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+
 	{mso-style-link:"Balloon Text Char";
+
 	margin:0in;
+
 	margin-bottom:.0001pt;
+
 	font-size:8.0pt;
+
 	font-family:"Tahoma","sans-serif";
+
 	color:windowtext;}
+
 span.Heading1Char
+
 	{mso-style-name:"Heading 1 Char";
+
 	mso-style-link:"Heading 1";
+
 	font-family:"Cambria","serif";
+
 	color:#365F91;
+
 	font-weight:bold;}
+
 span.Heading2Char
+
 	{mso-style-name:"Heading 2 Char";
+
 	mso-style-link:"Heading 2";
+
 	font-family:"Cambria","serif";
+
 	color:#4F81BD;
+
 	font-weight:bold;}
+
 span.Heading3Char
+
 	{mso-style-name:"Heading 3 Char";
+
 	mso-style-link:"Heading 3";
+
 	font-family:"Cambria","serif";
+
 	color:#4F81BD;
+
 	font-weight:bold;}
+
 span.HTMLPreformattedChar
+
 	{mso-style-name:"HTML Preformatted Char";
+
 	mso-style-link:"HTML Preformatted";
+
 	font-family:"Consolas","serif";}
+
 span.normalwebchar
+
 	{mso-style-name:normalwebchar;
+
 	font-family:"Verdana","sans-serif";}
+
 span.z-TopofFormChar
+
 	{mso-style-name:"z-Top of Form Char";
+
 	mso-style-link:"z-Top of Form";
+
 	font-family:"Arial","sans-serif";
+
 	display:none;}
+
 span.z-BottomofFormChar
+
 	{mso-style-name:"z-Bottom of Form Char";
+
 	mso-style-link:"z-Bottom of Form";
+
 	font-family:"Arial","sans-serif";
+
 	display:none;}
+
 span.BalloonTextChar
+
 	{mso-style-name:"Balloon Text Char";
+
 	mso-style-link:"Balloon Text";
+
 	font-family:"Tahoma","sans-serif";}
+
 .MsoChpDefault
+
 	{font-size:10.0pt;}
+
 @page Section1
+
 	{size:8.5in 11.0in;
+
 	margin:1.0in 1.25in 1.0in 1.25in;}
+
 div.Section1
-	{page:Section1;}
+	{page:Section1;
+    width: 900px;
+    margin: 0 auto 20 auto;}
+
+div.menu
+{
+    padding: 4px 0px 4px 8px;  
+    display:inline;
+    float: left;
+}
+
+div.menu ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    font-weight: bold;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #334251;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    margin: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px; 
+}
+
+div.menu ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #334251;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: #334251;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
  /* List Definitions */
+
  ol
+
 	{margin-bottom:0in;}
+
 ul
+
 	{margin-bottom:0in;}
+
 -->
+
 </style>
 
+
+
 <link rel="shortcut icon" href="http://www.comcast.net/favicon.ico"
+
 type="image/vnd.microsoft.icon">
+
 </head>
+
+
 
 <body bgcolor="#F9FAFE" lang=EN-US link=blue vlink=purple>
 
+<div class="menu">
+    <ul>
+        <li><a href="..">Menu</a></li>
+        <li><a href="../ati-hd2x00">ATI HD Registry Tweaks</a></li>
+        <li><a href="../WMCRecordingStoragePooler">WMC Recording Storage Pooler</a></li>
+        <li><a href="../ChromeFirefoxSearchKeywordImporter">Chrome Search Keyword Importer</a></li>
+        <li><a href="../stbfirewire">STB Firewire Drivers</a></li>
+    </ul>
+</div>
+
 <div class=Section1>
 
+
+
 <table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0>
+
  <tr>
+
   <td colspan=2 style='padding:0in 0in 0in 0in'>
+
   <h1><a name="_Toc185690659"></a><a name="_Toc175236571"></a><a
+
   name="_Toc185687725"></a>STB Firewire Drivers for Windows Vista/XP/MCE</h1>
+
   </td>
+
  </tr>
+
  <tr>
+
   <td width=640 style='width:480.0pt;padding:0in 0in 0in 0in'>
+
   <form id=cse-search-box>
+
   <p class=MsoNormal><span style='display:none'><INPUT TYPE="hidden" NAME="cx" VALUE="partner-pub-2641769890115210:9xisfulxe6j"></span><span
+
   style='display:none'><INPUT TYPE="hidden" NAME="ie" VALUE="ISO-8859-1"></span><INPUT TYPE="text" SIZE="31" NAME="q"><INPUT TYPE="submit" ACTION="http://www.google.com/cse" VALUE="Search" NAME="sa"></p>
+
   </form>
+
   <h3><span style='display:none'><script  type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en">
+
   </script></span><a name="_Toc185690660"></a><a name="_Toc185687726"></a>Contents</h3>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690661">Download Here<span
+
   style='color:windowtext;display:none;text-decoration:none'>. 2</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690662">Installation<span
+
   style='color:windowtext;display:none;text-decoration:none'>. 2</span></a></span></span></p>
+
   <p class=MsoToc3><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690663">Simple
+
   Installation<span style='color:windowtext;display:none;text-decoration:none'>.
+
   2</span></a></span></span></p>
+
   <p class=MsoToc3><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690664">Advanced
+
   Installation<span style='color:windowtext;display:none;text-decoration:none'>.
+
   23</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690665">Uninstallation<span
+
   style='color:windowtext;display:none;text-decoration:none'>. 31</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690666">Driver Notes<span
+
   style='color:windowtext;display:none;text-decoration:none'> 32</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690667">Using CapDVHS<span
+
   style='color:windowtext;display:none;text-decoration:none'>. 34</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690668">Copy Protection
+
   &amp; Encryption<span style='color:windowtext;display:none;text-decoration:
+
   none'>. 34</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690669">The Broadcast
+
   Flag &amp; 5C DTCP<span style='color:windowtext;display:none;text-decoration:
+
   none'>. 35</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690670">Rights and
+
   Issues Surrounding Recording&nbsp;Content<span style='color:windowtext;
+
   display:none;text-decoration:none'> 36</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690671">Contact<span
+
   style='color:windowtext;display:none;text-decoration:none'> 38</span></a></span></span></p>
+
   <p class=MsoToc2><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690672">References<span
+
   style='color:windowtext;display:none;text-decoration:none'> 38</span></a></span></span></p>
+
   <p class=MsoToc3><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690673">Software &amp;
+
   Guides<span style='color:windowtext;display:none;text-decoration:none'> 38</span></a></span></span></p>
+
   <p class=MsoToc3><span class=MsoHyperlink><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'><a href="#_Toc185690674">Standards
+
   Documentation<span style='color:windowtext;display:none;text-decoration:none'>.
+
   38</span></a></span></span></p>
+
   <p>&nbsp;</p>
+
   <p>This is a driver package updated to support more STBs. Note that the
+
   drivers do not change from version to version, so there is no reason to
+
   update unless you are trying to use a new STB that wasn't supported earlier.</p>
+
   <p>The following driver package includes Windows XP/MCE/Vista Firewire
+
   drivers for various set-top-boxes manufactured by Scientific-Atlanta and
+
   Motorola. It includes a copy of CapDVHS, and the drivers and INF file from <a
+
   href="http://home.comcast.net/~timmmoore/firewire/readme.htm">Tim M. Moore's
+
   firestb.msi installer</a>, with the INF file updated to work with the
+
   following devices:</p>
+
   <p>Scientific-Atlanta, Inc.<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 3250HD<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 4200HD<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 4250HD - Added 2007-05-16. Updated for
+
   PnP ID &quot;4300&quot; 2007-08-07.<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8000HD<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8240&nbsp;&nbsp;&nbsp;&nbsp; - Added
+
   2008-07-23<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8240HD - Added 2008-07-23<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8300HD<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8301HD<br>
+
   Scientific-Atlanta, Inc. EXPLORER(R) 8540&nbsp;&nbsp;&nbsp;&nbsp; - Added 2009-02-25</p>
+
   <p>Cisco RNG200 - Added 2009-02-25</p>
+
   <p>Motorola<br>
+
   Motorola DCT-XXXX<br>
+
   Motorola DCH-3200 - Added 2007-10-25<br>
+
   Motorola DCH-3416 - Added 2007-08-04<br>
+
   Motorola DCT-3412<br>
+
   Motorola DCT-3416 - Added 2007-05-15<br>
+
   Motorola DCH-6200 - Added 2008-10-15<br>
+
   Motorola DCT-6200<br>
+
   Motorola QIP-6200<br>
+
   Motorola DCT-6208<br>
+
   Motorola DCH-6416 - Added 2007-08-04<br>
+
   Motorola DCT-6412<br>
+
   Motorola DCT-6416<br>
+
   Motorola QIP-6416 - Added 2007-06-04<br>
+
   Motorola 9012<br>
+
   Motorola 9022</p>
+
   <p>Pace - Added 2007-06-06<br>
+
   Pace Laguna - Added 2007-06-06</p>
+
   <p>LG 50PX4DR HDTV DVR - Added 2007-08-01</p>
+
   <p>Samsung SMT-H3050 - Added 2007-12-17; Updated 2009-01-08</p>
+
   <h2><a href="stb_firewire_drivers_2009-02-25.zip">Download Here</a><a
+
   name="_Toc185690661"></a><a name="_Toc175236572"></a><a name="_Toc185687727"></a></h2>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 728x90 Leaderboard, created 5/18/08 */
+
 	google_ad_slot = "5551946894";
+
 	google_ad_width = 728;
+
 	google_ad_height = 90;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   <h2><a name="_Toc185690662"></a><a name="_Toc175236573"></a><a
+
   name="_Toc185687728"></a>Installation</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>If you simply want to capture a Firewire stream (e.g., with CapDVHS), then
+
   all you need is the AV/C Tuner device. If you are using one of the Tim M.
+
   Moore-based driver packages (like the one downloaded from here), then you can
+
   select the device named for your STB. If your STB is not listed, then you can
+
   go through the manual driver install process.</p>
+
   <p>A STB supports two relevant device profiles: AV/C Tuner and AV/C Panel.
+
   The Panasonic D-VHS driver is an AV/C Tape driver. You are installing an AV/C
+
   Tape driver for an AV/C Tuner device. That is why, with the original
+
   meitape.inf file, you have to uncheck the 'Show compatible hardware' box to
+
   select 'Panasonic D-VHS AV/C Device' (an AV/C Tape driver). With the
+
   firestb.inf file included in my package, hopefully your STB will already be
+
   listed without having to uncheck the 'Show compatible hardware' box.</p>
+
   <p>Download the driver package and extract it to a convenient place on your
+
   hard drive. Connect your STB to your PC using the Firewire cable and follow
+
   the appropriate installation process:</p>
+
   <h3><a name="_Toc185690663"></a><a name="_Toc185687729"></a>Simple
+
   Installation</h3>
+
   <p><b>Windows XP/MCE:</b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>1.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>When you connect the Firewire cable, the New Hardware Wizard will pop
+
   up. It asks, &quot;Can Windows connect to Windows Update to search for
+
   software?&quot; <b>Select &quot;No, not at this time&quot; and click Next.</b><br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp01.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp01.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>2.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>The first device will be an &quot;Unknown&quot; or &quot;Image&quot;
+
   device. <b>Select &quot;Install from a list or specific location
+
   (Advanced)&quot; and click Next.</b><br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp02.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp02.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>3.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Ensure &quot;Search for the best driver in these locations&quot; is
+
   selected, then <b>check the box for &quot;Include this location in the
+
   search:&quot; and click Browse.<br>
+
   <br>
+
   <br>
+
   </b><b><img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp03.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp03.jpg"></b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>4.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Navigate to the location where you have extracted the driver package
+
   and <b>select the &quot;drivers&quot; folder and click OK</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=326 height=322
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp08.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp08.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>5.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Back on the other window,<b> click Next.<br>
+
   <br>
+
   <br>
+
   </b><b><img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp03.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp03.jpg"></b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>6.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>When prompted to acknowledge that the driver has not passed Windows
+
   Logo testing, <b>click &quot;Continue Anyway&quot;.</b><br>
+
   <br>
+
   <br>
+
   <img border=0 width=396 height=315
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp04.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp04.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>7.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>After the driver installs, <b>click Finish</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp05.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp05.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>8.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Another New Hardware Wizard will pop up for each subsequent device.
+
   For most STBs, there will be an AV/C Tuner device and an AV/C Panel device.
+
   For some, there will be an additional Unknown device. <b>Select &quot;No, not
+
   at this time&quot; and click Next</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp01.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp01.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>9.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>The driver has already been installed, so no matter what devices come
+
   up, <b>select &quot;Install the software automatically (Recommended)&quot;</b>.
+
   <br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp06.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp06.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>10.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>When prompted to acknowledge that the driver has not passed Windows
+
   Logo testing, <b>click &quot;Continue Anyway&quot;.<br>
+
   <br>
+
   <br>
+
   </b><img border=0 width=396 height=315
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp04.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp04.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>11.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>After the driver installs, <b>click Finish</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=503 height=392
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp05.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp05.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>12.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span><b>Repeat steps 8-11 for each new device</b>.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>13.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>When all devices have been installed, you can view them in Device
+
   Manager under Imaging devices.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=640 height=451
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp07.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp07.jpg"></p>
+
   <p><b>Windows Vista:</b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>1.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>When you connect the Firewire cable, the Found New Hardware wizard
+
   will pop up. <b>Select &quot;Locate and install driver software
+
   (recommended)&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=456 height=355
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/01a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/01a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>2.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span><b>Select &quot;Don't search online&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/02a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/02a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>3.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span><b>Select &quot;Browse my computer for driver software
+
   (advanced)&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/03a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/03a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>4.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span><b>Click &quot;Browse&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/04a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/04a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>5.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Navigate to the location where you have extracted the driver package
+
   and <b>select the &quot;drivers&quot; folder</b>.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>6.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Back on the other window,<b> click Next.<br>
+
   <br>
+
   <br>
+
   </b><b><img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/04.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/04.jpg"></b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>7.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>A Windows Security window will pop up, warning &quot;Windows cannot
+
   verify the publisher of this driver software&quot;. <b>Select &quot;Install
+
   this driver software anyway&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=516 height=306
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>8.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>After the driver installs, <b>click Close</b>.<br>
+
   <br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>9.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Another New Hardware Found wizard will pop up for each subsequent
+
   device. For most STBs, there will be an AV/C Tuner device and an AV/C Panel
+
   device. For some, there will be an additional Unknown device. <b>Select
+
   &quot;Locate and install driver software (recommended)&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=456 height=355
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/01a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/01a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>10.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span><b>Select &quot;Don't search online&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/02a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/02a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>11.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>The driver has already been installed, so no matter what devices come
+
   up, <b>select &quot;Check for a solution&quot;</b>.<b><br>
+
   <br>
+
   <br>
+
   </b><b><img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/03b.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/03b.jpg"></b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>12.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>There may be a step missing here, but proceed until a Windows Security
+
   window pops up, warning &quot;Windows cannot verify the publisher of this
+
   driver software&quot;. <b>Select &quot;Install this driver software
+
   anyway&quot;</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=516 height=306
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>13.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>After the driver installs, <b>click Close</b>.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>14.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span><b>Repeat steps 9-13 for each new device</b>.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>15.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>When all devices have been installed, you can view them in Device
+
   Manager under Imaging devices.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=640 height=451
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp07.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/xp/xp07.jpg"></p>
+
   <h3><a name="_Toc185690664"></a><a name="_Toc185687730"></a>Advanced
+
   Installation</h3>
+
   <p><b>Windows XP/MCE: </b></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>1.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Cancel
+
   all New Hardware Wizards.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>2.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
+
   Device Manager (right-click on My Computer &gt; select Properties &gt; select
+
   Hardware tab &gt; click Device Manager).</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>3.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Find
+
   the devices under 'Other devices', i.e., 'Tuner AV/C Device'.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>4.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Right-click
+
   and select 'Update Driver'. </p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>5.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>When
+
   the Hardware Update Wizard pops up, select 'Install from a list or specific
+
   location (Advanced)'. Click Next.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>6.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Select
+
   'Don't search. I will choose the driver to install.' Click Next.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>7.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Click
+
   'Have Disk...'</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>8.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Click
+
   'Browse...'</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>9.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Navigate
+
   to the location where you have extracted the driver package and select the
+
   drivers folder.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>10.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Select
+
   'firestb.inf'. If you are using the original Panasonic driver package, select
+
   'meitape.inf' instead. Click Open.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>11.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>On the Install
+
   From Disk window, click OK.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>12.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>If using
+
   firestb.inf, select the device that matches your STB's name. If it isn't
+
   listed, select the 'Tuner AV/C Device', or some other name. The name isn't
+
   all that important.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>13.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>If using
+
   meitape.inf, uncheck the 'Show compatible hardware' box and select 'Panasonic
+
   D-VHS AV/C Device'.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>14.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Click on 'Yes' on
+
   the 'Update Driver Warning'.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>15.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Click 'Continue
+
   Anyway' to ignore the warnings about unsigned drivers.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>16.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Click 'Finish'
+
   when the driver is installed.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>17.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Follow the same
+
   steps to update the driver for the AV/C Panel device.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>18.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Right-click on the
+
   'Unknown device' and select Disable.</p>
+
   <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'>&nbsp;</span></p>
+
   <p><b>Windows Vista:</b></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>1.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Cancel all Found New Hardware wizards.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=456 height=355
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/01.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/01.jpg"></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>2.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open
+
   Device Manager (right-click on My Computer &gt; select Properties &gt; click
+
   Device Manager).</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>3.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Find the devices under 'Other devices', i.e., 'MOTOROLA DCT-3416 AV/C
+
   Tuner'.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=795 height=579
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/05a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/05a.jpg"></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>4.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Right-click
+
   and select 'Update Driver'. </p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>5.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>When the Update Driver Software wizard pops up, select 'Browse my
+
   computer for driver software'.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/06a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/06a.jpg"></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>6.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Click
+
   'Browse...'<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/07a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/07a.jpg"></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>7.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Navigate
+
   to the location where you have extracted the driver package and select the
+
   drivers folder.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>8.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Select 'firestb.inf'. Click Open.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>9.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Back
+
   on the Update Driver Software window, click Next.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/07a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/07a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>10.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>A Windows Security window will pop up, warning 'Windows cannot verify
+
   the publisher of this driver software'. Select 'Install this driver anyway'.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=516 height=306
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/08a.jpg"></p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>11.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;
+
   </span>Click Close when the driver is installed.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=628 height=465
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/10.jpg"></p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>12.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Follow the same
+
   steps to update the driver for the AV/C Panel device.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>13.<span style='font-size:
+
   7.0pt;font-family:"Times New Roman","serif"'>&nbsp; </span>Right-click on the
+
   'Unknown device' and select Disable.<br>
+
   <br>
+
   <br>
+
   <img border=0 width=795 height=579
+
   src="http://i63.photobucket.com/albums/h145/exdeus/stb/11.jpg"
+
   alt="http://i63.photobucket.com/albums/h145/exdeus/stb/11.jpg"></p>
+
   <p style='margin-bottom:12.0pt;text-indent:3.75pt'>&nbsp;</p>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 728x90 Leaderboard, created 5/18/08 */
+
 	google_ad_slot = "5551946894";
+
 	google_ad_width = 728;
+
 	google_ad_height = 90;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   <h2><a name="_Toc185690665">Uninstallation</a></h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>If you have issues installing a new driver or different driver versions,
+
   you can also uninstall the driver from your system completely.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>1.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Uninstall the devices:<br>
+
   <br>
+
   Open Device Manager, and for each STB device under Imaging devices,
+
   right-click and select Uninstall. When prompted, confirm the uninstallation.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>2.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>Remove the Windows driver services:<br>
+
   <br>
+
   In Windows Explorer, navigate to the &quot;drivers&quot; folder where you
+
   extracted the STB driver package downloaded from this site. Double-click the
+
   &quot;UninstallServices.reg&quot; file to remove the services from the
+
   Windows registry.</p>
+
   <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+
   .5in;text-indent:-.25in'>3.<span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   </span>If you want to be very thorough, remove all oemXX.inf files for the
+
   STB drivers:<br>
+
   <br>
+
   In Windows Explorer, navigate to the C:\Windows\inf folder. Search for all
+
   *.inf files containing the text &quot;meituner&quot;. In Windows XP, this can
+
   be accomplished by clicking &quot;Search&quot; on the Windows Explorer
+
   toolbar; in &quot;All or part of the filename&quot; enter &quot;*.inf&quot;;
+
   in &quot;A word or phrase in the file&quot; enter &quot;meituner&quot;; click
+
   the &quot;Search&quot; button. Delete all oemXX.inf files that are found.</p>
+
   <p style='margin-left:.5in;text-indent:-.25in'>4.<span style='font-size:7.0pt;
+
   font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Reboot.</p>
+
   <p style='margin-left:.25in'>&nbsp;</p>
+
   <h2><a name="_Toc185690666"></a><a name="_Toc175236574"></a><a
+
   name="_Toc185687731"></a>Driver Notes</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>I have made this driver package available because I plan to update it
+
   frequently as devices change. My package includes the most PnP Hardware IDs,
+
   which allows the driver to be installed on the most STBs. If the other driver
+
   packages were updated more frequently, you wouldn't need to download this
+
   one.</p>
+
   <p>The <a href="http://replayguide.sourceforge.net/dct6412/">DCT64xx Firewire
+
   capture and HD/SD to DVD guide</a> from ReplayGuide uses <a
+
   href="http://replayguide.sourceforge.net/dct6412/motorola6412_firewire.zip">a
+
   driver package</a> also based on the Tim M. Moore drivers. It has not been
+
   updated in a bit, however, and so it does not support as many STBs. Follow
+
   the instructions there, but use this driver package instead.</p>
+
   <p>There is also another driver package out there, in a zip file named
+
   &quot;meidvhs.zip&quot;. It contains the original drivers as developed by
+
   Panasonic in 2001. All of the driver packages work similarly for Windows
+
   2000/XP/Vista, although the ones based on the Tim M. Moore driver package
+
   (Tim's, mine, and ReplayGuide's) also support a Panel device for integration
+
   with Windows XP MCE or Vista Home Premium.</p>
+
   <p>Below are some of the differences between the Panasonic (Matsushita) and
+
   Tim M. Moore (and variants) driver packages:</p>
+
   <p>Matsushita -&gt; TimMMoore</p>
+
   <p class=MsoNormal style='margin-left:1.25in;text-indent:-.25in'><span
+
   style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+
   <ul style='margin-top:0in' type=disc>
+
    <li class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+
        Tuner driver:<br>
+
        <br>
+
        <b>meituner.sys -&gt; (not included)</b><br>
+
        (Not loaded unless you incorrectly select the 'Panasonic Tuner AV/C
+
        Device') -&gt; (not included)<br>
+
        <br>
+
        <b>meituner.sys</b> </span></li>
+
   </ul>
+
   <p class=MsoNormal style='margin-left:33.75pt'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Panasonic Tuner driver</span></p>
+
   <p class=MsoNormal style='margin-left:33.75pt'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Copyright (C) Matsushita Electric Industorial
+
   Co.,Ltd.</span></p>
+
   <p class=MsoNormal style='margin-left:33.75pt'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Windows File Version: 5.0.2195.1620</span></p>
+
   <p class=MsoNormal style='margin-left:33.75pt'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Internal File Version: 1.00.130.1200</span></p>
+
   <p class=MsoNormal style='margin-left:33.75pt'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Internal name: MeiTuner.sys</span></p>
+
   <p class=MsoNormal style='margin-left:1.0in'><span style='font-size:10.0pt;
+
   font-family:"Verdana","sans-serif"'>&nbsp;</span></p>
+
   <ul style='margin-top:0in' type=disc>
+
    <li class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+
        Tape driver:<br>
+
        <br>
+
        <b>meitape.sys -&gt; meistb.sys</b><br>
+
        Loaded for the 'Panasonic D-VHS AV/C Device' AV/C Tape device -&gt;
+
        Loaded for the AV/C Tuner device<br>
+
        <br>
+
        <b>meitape.sys</b> <br>
+
        </span><span style='font-size:10.0pt;font-family:"Courier New"'>Panasonic
+
        D-VHS driver <br>
+
        Copyright (C) Matsushita Electric Industorial Co.,Ltd. <br>
+
        Windows File Version: 1.0.130.1430 <br>
+
        Internal File Version: 1.00.130.1430 <br>
+
        Internal Name: MeiTape.sys <br>
+
        <br>
+
        </span><b><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>meistb.sys</span></b><span
+
        style='font-size:10.0pt;font-family:"Verdana","sans-serif"'> </span></li>
+
   </ul>
+
   <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Panasonic D-VHS driver </span></p>
+
   <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Copyright (C) Matsushita Electric Industorial
+
   Co.,Ltd. </span></p>
+
   <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Windows File Version: 1.0.130.1430 </span></p>
+
   <p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+
   font-family:"Courier New"'>Internal File Version: 1.00.130.1430 </span></p>
+
   <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:12.0pt;
+
   margin-left:.5in'><span style='font-size:10.0pt;font-family:"Courier New"'>Internal
+
   Name: MeiTape.sys </span></p>
+
   <ul style='margin-top:0in' type=disc>
+
    <li class=MsoNormal style='margin-bottom:12.0pt'><span style='font-size:
+
        10.0pt;font-family:"Verdana","sans-serif"'>The Panel driver:<br>
+
        <br>
+
        <b>(not included) -&gt; mstapeo.sys</b><br>
+
        (not included) -&gt; Loaded for the Panel device<br>
+
        <br>
+
        <b>mstapeo.sys</b> <br>
+
        </span><span style='font-size:10.0pt;font-family:"Courier New"'>Microsoft
+
        AV/C Tape Subunit Driver <br>
+
        © Microsoft Corporation. All rights reserved. <br>
+
        Windows File Version: 5.3.2600.2180 <br>
+
        Internal File Version: 5.3.2600.2180 (xpsp_sp2_rtm.040803-2158) <br>
+
        Internal Name: MSTape.sys </span></li>
+
    <li class=MsoNormal><span style='font-size:10.0pt;font-family:"Verdana","sans-serif"'>The
+
        Stream Filter driver:<br>
+
        <br>
+
        <b>meistrm.sys -&gt; avcstrm.sys </b>(default Windows driver)<br>
+
        Loaded for all devices -&gt; Loaded for all devices<br>
+
        <br>
+
        <b>meistrm.sys</b> <br>
+
        </span><span style='font-size:10.0pt;font-family:"Courier New"'>Panasonic
+
        AVC Streaming filter driver <br>
+
        Copyright (C) Matsushita Electric Industorial Co.,Ltd. 2001 <br>
+
        Windows File Version: 1.0.130.1100 <br>
+
        Internal File Version: 1.00.0130.1100 <br>
+
        Internal Name: MeiStrm.sys</span> <br>
+
        <br>
+
        <span class=normalwebchar><b><span style='font-size:10.0pt'>avcstrm.sys</span></b></span><b><span
+
        style='font-size:10.0pt;font-family:"Verdana","sans-serif"'><br>
+
        </span></b><span class=normalwebchar><span style='font-size:10.0pt;
+
        font-family:"Courier New"'>Microsoft WDM AVC Streaming filter driver</span></span><span
+
        style='font-size:10.0pt;font-family:"Courier New"'><br>
+
        <span class=normalwebchar><span style='font-family:"Courier New"'>©
+
        Microsoft Corporation. All rights reserved.</span></span><br>
+
        <span class=normalwebchar><span style='font-family:"Courier New"'>Windows
+
        File Version: 5.1.2600.2180</span></span><br>
+
        <span class=normalwebchar><span style='font-family:"Courier New"'>Internal
+
        File Version: 5.1.2600.2180 (xpsp_sp2_rtm.040803-2158)</span></span><br>
+
        <span class=normalwebchar><span style='font-family:"Courier New"'>Internal
+
        Name: AVCStrm.sys</span></span></span></li>
+
   </ul>
+
   <p>The following is quoted from <a
+
   href="http://home.comcast.net/~timmmoore/firewire/readme.htm">Tim M. Moore's
+
   readme</a>. It details how the Microsoft mstape.sys is altered.</p>
+
   <p>How do I to create mstapeo.sys?</p>
+
   <p>The quickest way to get mstapeo.sys is to download it from the <a
+
   href="http://home.comcast.net/~timmmoore/firewire/readme.htm">link</a> at the
+
   top of the document. If not the following are the details of how to create
+
   it:<br>
+
   <br>
+
   Copy mstape.sys from XP SP2 to mstapeo.sys in meistb drivers’ directory<br>
+
   <br>
+
   Edit using a hex editor</p>
+
   <p>Offset 130 is &nbsp;&nbsp; 04 BC 01 00
+
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   change to 0a 11 01 00</p>
+
   <p>Offset 18bf is &nbsp; 8b f0 3b f7 0f 8c a0 01 00 00
+
   &nbsp;&nbsp;&nbsp;&nbsp; change to 90 90 90 90 90 90 90 90 90 90</p>
+
   <p>Offset 1a76 is &nbsp; 8b c6
+
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   change to 33 c0</p>
+
   <p>Save the file</p>
+
   <p>Can I use mstapeo.sys on XP SP1a?</p>
+
   <p>The following instructions create an mstapeo.sys for SP1a.<br>
+
   <br>
+
   Copy mstape.sys from XP SP1a to mstapeo.sys in meistb drivers’ directory<br>
+
   <br>
+
   Edit using a hex editor</p>
+
   <p>Offset 138 is &nbsp;&nbsp; CC 03
+
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   change to D1 58</p>
+
   <p>Offset 17ad is&nbsp;&nbsp; 8b f0 3b f7 0f 8c a0 01 00
+
   00&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; change to 90 90 90 90 90 90 90 90 90 90</p>
+
   <p>Offset 1964 is&nbsp;&nbsp; 8b c6
+
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
   change to 33 C0</p>
+
   <p>Save the file</p>
+
   <p>&nbsp;</p>
+
   <h2><a name="_Toc185690667"></a><a name="_Toc175236575"></a><a
+
   name="_Toc185687732"></a>Using CapDVHS</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>TBD</p>
+
   <p>&nbsp;</p>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 728x15, Links, created 5/20/08 */
+
 	google_ad_slot = "7724260402";
+
 	google_ad_width = 728;
+
 	google_ad_height = 15;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   <h2><a name="_Toc185690668"></a><a name="_Toc175236576"></a><a
+
   name="_Toc185687733"></a>Copy Protection &amp; Encryption</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>Copy protection (or Digital Rights Management) is a policy. It enumerates
+
   rights and restrictions for content. One method of implementing a copy
+
   protection policy includes a flag indicating the policy, and encryption enforcing
+
   the policy. Another method would be just a flag that expects a device on the
+
   receiving end to honor (i.e., the Broadcast Flag, Macrovision, etc.).<br>
+
   <br>
+
   Broadcast/cablecast systems employ a variety of scrambling/encryption
+
   technologies to enforce copy protection / subscriber access policies but, in
+
   the case of Firewire as it used in cable STBs, the method of enforcing the
+
   copy protection is encryption. The authentication and encryption scheme used
+
   is called Five Company Digital Transmission Content Protection (<a
+
   href="http://en.wikipedia.org/wiki/DTCP">5C DTCP</a>). 5C DTCP uses Copy
+
   Control Information (CCI) flags to indicate the type of authentication and
+
   copy protection that is required. When you see &quot;5C&quot; or
+
   &quot;CCI&quot;, both have to do with the Firewire output; neither have to do
+
   with the data stream delivered to your STB.<br>
+
   <br>
+
   CCI 0x02 indicates a copy protection policy that stipulates
+
   copy-one-generation. But what is the copy protection? The copy protection is
+
   encryption.<br>
+
   <br>
+
   In this context, there really isn't any point in distinguishing between
+
   something that is &quot;copy protected&quot; and &quot;encrypted&quot;,
+
   because the copy protected content is encrypted. </p>
+
   <p>You can use CapDVHS to see if a program is protected by 5C DTCP. Simply
+
   play the program from your DVR / live broadcast that you want to capture and
+
   start CapDVHS capturing to a file. If no values are populated on the
+
   &quot;Data Info&quot; tab, then the stream is encrypted and cannot be
+
   captured successfully.</p>
+
   <p>&nbsp;</p>
+
   <h2><a name="_Toc185690669"></a><a name="_Toc175236577"></a><a
+
   name="_Toc185687734"></a>The Broadcast Flag &amp; 5C DTCP</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>The <a href="http://en.wikipedia.org/wiki/Broadcast_flag">Broadcast Flag</a>
+
   was a scheme designed to protected over-the-air (OTA) broadcast television
+
   from being recorded, copied, and redistributed. Fortunately, the Broadcast
+
   Flag was <a href="http://www.eff.org/IP/broadcastflag/">struck down by the
+
   U.S. District Court of Columbia</a>.</p>
+
   <p>Five Company Digital Transmission Content Protection (<a
+
   href="http://en.wikipedia.org/wiki/DTCP">5C DTCP</a>) is a protection scheme
+
   used on transport buses (devices directly connected by a cable), particularly
+
   the Firewire ports on cable STBs. It is a closed system, controlled by the
+
   Digital Transmission Licensing Authority (<a href="http://www.dtcp.com/">DTLA</a>),
+
   implemented in hardware, and which can be continually updated, so it has not
+
   been &quot;cracked&quot; like DVD's <a
+
   href="http://en.wikipedia.org/wiki/Content_Scramble_System">CSS</a> or HD-DVD
+
   and Blu-ray's <a
+
   href="http://en.wikipedia.org/wiki/Advanced_Access_Content_System">AACS</a>.
+
   5C DTCP encryption is not used over the cable system, but can be controlled
+
   per channel or per program by a cable system for the Firewire output, so, in
+
   short, if a program is protected by 5C DTCP, you cannot capture it with a PC.
+
   Only a licensed device like a D-VHS deck will be able to record a 5C
+
   DTCP-protected stream to play back later. You may be able to capture the
+
   stream with a PC, but the resulting content will be unreadable, as the data
+
   is encrypted with encryption keys that change every 180 seconds.</p>
+
   <p>It has been determined, by examining OTA broadcast streams, that some
+
   broadcasters have implemented the Broadcast Flag (formally known as the
+
   &quot;Redistribution Control Descriptor&quot;, or RC_descriptor), even though
+
   equipment sold to consumers does not honor the flag to implement any form of
+
   copy protection. [<a
+
   href="http://www.avsforum.com/avs-vb/showpost.php?p=9771935&amp;postcount=3603">ref</a>]</p>
+
   <p>Unfortunately, it also has been determined, empirically, that some cable
+
   STBs honor the Broadcast Flag and use it to apply to 5C DTCP to the Firewire
+
   output of local broadcasts. See the <a
+
   href="http://en.wikibooks.org/wiki/How_to_use_a_Motorola_DVR/Configuration#How_To_Check_If_5C_DTCP_is_Enabled">How
+
   to use a Motorola DVR</a> wikibook to determine if 5C DTCP is being used by a
+
   Motorola cable STB. The 5C IMPLEMENTATION and CCI flags indicate whether 5C
+
   DTCP is being applied. Any value other than both being
+
   &quot;NO&quot;/&quot;0x00&quot; indicates encryption is being applied. </p>
+
   <p>The DRM flag indicates whether the encryption is triggered by a cable
+
   program, and the RC Flag indicates whether the encryption is triggered by a
+
   local broadcast's Broadcast Flag.</p>
+
   <p>The CCI flag seems to control the overall encryption, as situations have
+
   been found where a stream was set DRM 0x01 and CCI 0x00, and the program was
+
   successfully captured. </p>
+
   <p>It is likely that the CCI flag values correspond to those established by
+
   the DTLA: <br>
+
   <br>
+
   Copy Never (11 or 0x03)<br>
+
   Copy One Generation (10 or 0x02)<br>
+
   No More Copies (01 or 0x01)<br>
+
   Copy Freely (00 or 0x00)<br>
+
   <br>
+
   &quot;Copy One Generation&quot; (0x02) does not refer to the initial
+
   recording on the DVR, but to one copy to a DTCP-compliant device, i.e., a
+
   DVHS deck.<br>
+
   <br>
+
   A PC connected via Firewire is not DTCP-compliant, so no copying that
+
   requires authentication is allowed. That means only content marked &quot;Copy
+
   Freely&quot; (0x00) can be transferred to a PC, as all others require
+
   authentication.</p>
+
   <p><span style='font-size:9.0pt'>There is one other situation that is
+
   possible, in which the STB uses 5C DTCP in </span>Encryption Plus
+
   Non-assertion (EPN) mode. This leaves the CCI value at 0x00, but the content
+
   is still encrypted, so seeing a particular CCI value does not guarantee the
+
   stream can be recorded. </p>
+
   <p>&nbsp;</p>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 728x15, Links, created 5/20/08 */
+
 	google_ad_slot = "7724260402";
+
 	google_ad_width = 728;
+
 	google_ad_height = 15;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   <h2><a name="_Toc185690670"></a><a name="_Toc175236578"></a><a
+
   name="_Toc185687735"></a>Rights and Issues Surrounding Recording&nbsp;Content</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>The FCC has rules that protect your right to record, in an unencrypted
+
   form, the local broadcast content in your area, even if it is relayed through
+
   a cable system. The trick is to get your local broadcast affiliates not to
+
   use the Broadcast Flag in their broadcasts, because of the reasons that
+
   follow.</p>
+
   <p>Cable systems are governed by <a
+
   href="http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&amp;rgn=div5&amp;view=text&amp;node=47:4.0.1.1.4&amp;idno=47">Code
+
   of Federal Regulations Title 47 Part 76</a> - MULTICHANNEL VIDEO AND CABLE
+
   TELEVISION SERVICE. The most relevant section reads:</p>
+
   <p><span class=updatebodytest><span style='font-family:"Verdana","sans-serif"'><a
+
   href="http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&amp;rgn=div5&amp;view=text&amp;node=47:4.0.1.1.4&amp;idno=47#47:4.0.1.1.4.23.3.9">§&nbsp;76.1909&nbsp;&nbsp;&nbsp;Redistribution
+
   control of unencrypted digital terrestrial broadcast content.</a></span></span></p>
+
   <p><i>(a) For the purposes of this section, the terms unencrypted digital
+
   terrestrial broadcast content, EIT, PMT, broadcast flag, covered demodulator
+
   product, and marked content shall have the same meaning as set forth in
+
   §73.9000 of this chapter.</i></p>
+
   <p><i>(b) Encrypted retransmission. Where a multichannel video programming
+
   distributor retransmits unencrypted digital terrestrial broadcast content in
+
   encrypted form, such distributor shall, upon demodulation of the 8–VSB,
+
   16–VSB, 64–QAM or 256–QAM signal, inspect either the EIT or PMT for the
+
   broadcast flag, and if the broadcast flag is present:</i></p>
+
   <p><i>(1) Securely and robustly convey that information to the consumer
+
   product used to decrypt the distributor's signal information, and</i></p>
+
   <p><i>(2) Require that such consumer product, following such decryption, protect
+
   the content of such signal as if it were a covered demodulator product
+
   receiving marked content.</i></p>
+
   <p><i>(c) Unencrypted retransmission. Where a multichannel video programming
+
   distributor retransmits unencrypted digital terrestrial broadcast content in unencrypted
+
   form, such distributor shall, upon demodulation:</i></p>
+
   <p><i>(1) Preserve the broadcast flag, if present, in both the EIT and PMT;
+
   and</i></p>
+
   <p><i>(2) Use 8–VSB, 16–VSB, 64–QAM, or 256–QAM signal modulation for the
+
   retransmission.</i></p>
+
   <p><i>(d) <b>Unmarked content. Where a multichannel video programming
+
   distributor retransmits unencrypted digital terrestrial broadcast content
+
   that is not marked with the broadcast flag, the multichannel video
+
   programming distributor shall not encode such content to restrict its
+
   redistribution.</b></i></p>
+
   <p>&nbsp;</p>
+
   <p>The most important part is that which I bolded, above, in subparagraph
+
   (d). Essentially, if the local broadcast isn't marked with the Broadcast
+
   Flag, then the cable equipment can't encrypt it. The flipside is that if the
+
   local broadcast does contain the Broadcast Flag, then the cable equipment <b>must</b>
+
   pass it on through the Firewire output. There are two possible scenarios that
+
   can then arise if the Broadcast Flag is present: 1) The cable provider is
+
   retransmitting the local broadcast in <b>encrypted</b> form, or 2) the cable
+
   provider is retransmitting the local broadcast in <b>unencrypted</b> form.
+
   Scenario 1, with encryption, means subparagraph (b) applies, and the cable
+
   STB must protect the content, presumably using 5C DTCP over Firewire.
+
   Scenario 2, without encryption, means subparagraph (c) applies, and the
+
   content doesn't have to be protected, but it does have to preserve the
+
   Broadcast Flag.</p>
+
   <p>A response to an inquiry sent to the FCC reads as follows [<a
+
   href="http://www.avsforum.com/avs-vb/showpost.php?p=9759700&amp;postcount=3591">ref</a>]:
+
   </p>
+
   <p>&nbsp;</p>
+
   <p><i>On September 10, 2003, the <span class=highlight><span
+
   style='font-family:"Verdana","sans-serif"'>FCC</span></span> adopted rules
+
   permitting TV sets to be built with<br>
+
   &quot;plug and play&quot; functionality for one-way digital cable services,
+
   which include<br>
+
   typical cable programming services and premium channels like HBO and Showtime.<br>
+
   <br>
+
   <span class=highlight><span style='font-family:"Verdana","sans-serif"'>FCC</span></span>
+
   Rule Section 76.640, entitled, &quot;Support for Unidirectional Digital Cable<br>
+
   Products on Digital Cable Systems,&quot; in subparagraph (a) notes that the<br>
+
   requirements apply to digital cable systems with one or more channels
+
   utilizing<br>
+
   QAM modulation for transporting programs and services from their head ends to<br>
+
   receiving devices. Cable systems that only pass through 8 VSB broadcast
+
   signals<br>
+
   shall not be considered digital cable systems.<br>
+
   <br>
+
   Complaints alleging violations of <span class=highlight><span
+
   style='font-family:"Verdana","sans-serif"'>FCC</span></span> rules should be
+
   in writing briefly stating<br>
+
   facts and sent to:<br>
+
   <br>
+
   Federal Communications Commission<br>
+
   Enforcement Bureau<br>
+
   445 12th Street, SW<br>
+
   Washington, DC 20554</i></p>
+
   <p>&nbsp;</p>
+
   <p>OTA broadcasts use <a href="http://en.wikipedia.org/wiki/8VSB"><i>8VSB</i></a>
+
   modulation, while digital cable systems use <a
+
   href="http://en.wikipedia.org/wiki/QAM"><i>QAM</i></a>. When digital cable
+
   systems carry OTA broadcasts, they receive the 8VSB signals and rebroadcast
+
   them over the cable system using QAM. Most cable systems do not exclusively
+
   pass through 8VSB broadcasts, they bundle them with their own QAM channels,
+
   qualifying them under the FCC's definition of a digital cable system.</p>
+
   <p>&nbsp;</p>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p class=MsoNormal>&nbsp;</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 728x15, Links, created 5/20/08 */
+
 	google_ad_slot = "7724260402";
+
 	google_ad_width = 728;
+
 	google_ad_height = 15;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   <h2><a name="_Toc185690671"></a><a name="_Toc175236579"></a><a
+
   name="_Toc185687736"></a>Contact</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <p>If you would like other STBs added to the list of devices, <a
+
   href="http://www.avsforum.com/avs-vb/private.php?do=newpm&amp;userid=7486536">send
+
   a PM</a> or <a href="http://www.avsforum.com/avs-vb/showthread.php?t=403695">post
+
   a reply</a> at AVS Forum.</p>
+
   <p>All other questions should be posted at large to the <a
+
   href="http://www.avsforum.com/avs-vb/showthread.php?t=403695">AVS Forum
+
   thread</a>.</p>
+
   <p class=MsoNormal style='margin-bottom:12.0pt'>&nbsp;</p>
+
   <h2><a name="_Toc185690672"></a><a name="_Toc175236580"></a><a
+
   name="_Toc185687737"></a>References</h2>
+
   <div class=MsoNormal align=center style='text-align:center'>
+
   <hr size=2 width="100%" align=center>
+
   </div>
+
   <h3><a name="_Toc185690673"></a><a name="_Toc175236581"></a><a
+
   name="_Toc185687738"></a>Software &amp; Guides</h3>
+
   <p style='margin-bottom:12.0pt'><a
+
   href="http://home.comcast.net/~timmmoore/firewire/readme.htm">Tim M. Moore's
+
   firestb.msi installer</a><br>
+
   <a href="http://replayguide.sourceforge.net/dct6412/">ReplayGuide DCT64xx
+
   Firewire capture and HD/SD to DVD guide</a><br>
+
   <a href="http://www.avsforum.com/avs-vb/showthread.php?t=403695">AVS Forum -
+
   How to record via IEEE 1394 (Firewire) to Windows XP</a><br>
+
   <a
+
   href="http://broadband.custhelp.com/cgi-bin/broadband.cfg/php/enduser/std_adp.php?p_faqid=19213&amp;p_created=1174587838&amp;p_sid=bDlKteFi&amp;p_lva=&amp;p_sp=cF9zcmNoPTEmcF9zb3J0X2J5PSZwX2dyaWRzb3J0PSZwX3Jvd19jbnQ9NTAmcF9wcm9kcz01OTIsNTk3JnBfY2F0cz0mcF9wdj0yLjU5NyZwX2N2PSZwX3BhZ2U9MQ**&amp;p_li=&amp;p_topview=1">Motorola:
+
   How do a transfer my programs to an external device like a computer?</a>
+
   (references AVS Forum)</p>
+
   <h3><a name="_Toc185690674"></a><a name="_Toc175236582"></a><a
+
   name="_Toc185687739"></a>Standards Documentation</h3>
+
   <p><a href="http://www.dtcp.com/data/wp_spec.pdf">5C Digital Transmission
+
   Content Protection (DTCP) White Paper</a><br>
+
   <a href="http://www.dtcp.com/data/info%2020070615%20DTCP%20V1%201p5.pdf">DTCP
+
   Specification Volume 1 Version 1.5 (Informational Version)</a> </p>
+
   <p><a href="http://www.atsc.org/standards.html">ATSC Digital Television
+
   Standards</a></p>
+
   <p><a
+
   href="http://ecfr.gpoaccess.gov/cgi/t/text/text-idx?c=ecfr&amp;rgn=div5&amp;view=text&amp;node=47:4.0.1.1.4&amp;idno=47">Code
+
   of Federal Regulations Title 47 Part 76</a> - MULTICHANNEL VIDEO AND CABLE
+
   TELEVISION SERVICE</p>
+
   </td>
+
   <td width=160 valign=top style='width:120.0pt;padding:0in 0in 0in 0in'>
+
   <p class=MsoNormal><script  type="text/javascript">
+
 <!--
+
 	google_ad_client = "pub-2641769890115210";
+
 	/* 160x600 Wide Skyscraper, created 5/20/08 */
+
 	google_ad_slot = "6466699766";
+
 	google_ad_width = 160;
+
 	google_ad_height = 600;
+
 	//-->
+
   </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
   </script>&nbsp;</p>
+
   </td>
+
  </tr>
+
 </table>
+
+
 
 <p class=MsoNormal style='margin-bottom:12.0pt'>&nbsp;</p>
 
+
+
 <p class=MsoNormal><script  type="text/javascript">
+
 <!--
+
 google_ad_client = "pub-2641769890115210";
+
 /* 468x60, Firefox, created 5/20/08 */
+
 google_ad_slot = "8807717046";
+
 google_ad_width = 468;
+
 google_ad_height = 60;
+
 google_cpa_choice = ""; // on file
+
 //-->
+
 </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
 </script>&nbsp;</p>
+
+
 
 <p>Updated&nbsp; <script language="JavaScript"  type="text/javascript">
+
 document.write((new Date(document.lastModified)).toUTCString());
+
 </script></p>
+
+
 
 <p><img border=0 width=48 height=48
+
 src="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi"
+
 alt="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi">&nbsp;&nbsp;
+
 <script  type="text/javascript">
+
 <!--
+
 google_ad_client = "pub-2641769890115210";
+
 /* 120x60, Google AdSense, created 5/20/08 */
+
 google_ad_slot = "8435617486";
+
 google_ad_width = 120;
+
 google_ad_height = 60;
+
 google_cpa_choice = ""; // on file
+
 //-->
+
 </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
 </script></p>
 
+
+
 <h3 align=center style='text-align:center'><a name="_Toc185687740"></a><a
+
 name="_Toc185690675"></a>Please sign the guest book! Provide any feedback you
+
 feel to be worthwhile.</h3>
 
+
+
 <p class=MsoNormal align=center style='text-align:center'><a
+
 href="http://home.comcast.net/cgi-bin/GBEntry?owner=exdeus"><span
+
 style='text-decoration:none'><img border=0 width=88 height=31
+
 src="http://home.comcast.net/global-images/guestbook/sign_gb.jpg"
+
 alt="http://home.comcast.net/global-images/guestbook/sign_gb.jpg"></span></a></p>
 
+
+
 <p class=MsoNormal align=center style='text-align:center'><a
+
 href="http://home.comcast.net/cgi-bin/GBView?owner=exdeus"><span
+
 style='text-decoration:none'><img border=0 width=88 height=31
+
 src="http://home.comcast.net/global-images/guestbook/view_gb.jpg"
+
 alt="http://home.comcast.net/global-images/guestbook/view_gb.jpg"></span></a></p>
 
+
+
 <p class=MsoNormal><script  type="text/javascript">
+
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
 </script><script  type="text/javascript">
+
 var pageTracker = _gat._getTracker("UA-4148123-1");
+
 pageTracker._setDomainName("exdeus.home.comcast.net")
+
 pageTracker._initData();
+
 pageTracker._trackPageview();
+
 </script>&nbsp;</p>
+
+
 
 </div>
 
+
+
 </body>
 
+
+
 </html>
+
