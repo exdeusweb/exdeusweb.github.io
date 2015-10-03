@@ -1,831 +1,774 @@
+﻿<!DOCTYPE html>
 <html>
-
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
-<meta name=Generator content="Microsoft Word 12 (filtered)">
-<title>ATI HD Registry Tweaks</title>
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:Tahoma;
-	panose-1:2 11 6 4 3 5 4 4 2 4;}
-@font-face
-	{font-family:Verdana;
-	panose-1:2 11 6 4 3 5 4 4 2 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:"Times New Roman","serif";
-	color:windowtext;}
-h1
-	{mso-style-link:"Heading 1 Char";
-	margin-right:0in;
-	margin-left:0in;
-	font-size:24.0pt;
-	font-family:"Verdana","sans-serif";
-	color:navy;
-	font-weight:bold;}
-h2
-	{mso-style-link:"Heading 2 Char";
-	margin-right:0in;
-	margin-left:0in;
-	font-size:18.0pt;
-	font-family:"Verdana","sans-serif";
-	color:navy;
-	font-weight:bold;}
-h3
-	{mso-style-link:"Heading 3 Char";
-	margin-right:0in;
-	margin-left:0in;
-	font-size:13.5pt;
-	font-family:"Verdana","sans-serif";
-	color:navy;
-	font-weight:bold;}
-p
-	{margin-right:0in;
-	margin-left:0in;
-	font-size:10.0pt;
-	font-family:"Verdana","sans-serif";
-	color:navy;}
-p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-	{mso-style-link:"Balloon Text Char";
-	margin:0in;
-	margin-bottom:.0001pt;
-	font-size:8.0pt;
-	font-family:"Tahoma","sans-serif";
-	color:windowtext;}
-span.Heading1Char
-	{mso-style-name:"Heading 1 Char";
-	mso-style-link:"Heading 1";
-	font-family:"Cambria","serif";
-	color:#365F91;
-	font-weight:bold;}
-span.Heading2Char
-	{mso-style-name:"Heading 2 Char";
-	mso-style-link:"Heading 2";
-	font-family:"Cambria","serif";
-	color:#4F81BD;
-	font-weight:bold;}
-span.Heading3Char
-	{mso-style-name:"Heading 3 Char";
-	mso-style-link:"Heading 3";
-	font-family:"Cambria","serif";
-	color:#4F81BD;
-	font-weight:bold;}
-span.z-TopofFormChar
-	{mso-style-name:"z-Top of Form Char";
-	mso-style-link:"z-Top of Form";
-	font-family:"Arial","sans-serif";
-	display:none;}
-span.z-BottomofFormChar
-	{mso-style-name:"z-Bottom of Form Char";
-	mso-style-link:"z-Bottom of Form";
-	font-family:"Arial","sans-serif";
-	display:none;}
-span.BalloonTextChar
-	{mso-style-name:"Balloon Text Char";
-	mso-style-link:"Balloon Text";
-	font-family:"Tahoma","sans-serif";}
-.MsoChpDefault
-	{font-size:10.0pt;}
-@page Section1
-	{size:8.5in 11.0in;
-	margin:1.0in 1.0in 1.0in 1.0in;}
-div.Section1
-	{page:Section1;
-    width: 900px;
-    margin: 0 auto 20 auto;}
-
-div.menu
-{
-    padding: 4px 0px 4px 8px;  
-    display:inline;
-    float: left;
-}
-
-div.menu ul
-{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-    font-weight: bold;
-}
-
-div.menu ul li a, div.menu ul li a:visited
-{
-    background-color: #334251;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
-    display: block;
-    line-height: 1.35em;
-    padding: 4px 20px;
-    margin: 4px;
-    text-decoration: none;
-    white-space: nowrap;
-    -webkit-border-radius: 5px;  
-    -moz-border-radius: 5px; 
-}
-
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #334251;
-    text-decoration: none;
-}
-
-div.menu ul li a:active
-{
-    background-color: #334251;
-    color: #cfdbe6;
-    text-decoration: none;
-}
- /* List Definitions */
- ol
-	{margin-bottom:0in;}
-ul
-	{margin-bottom:0in;}
--->
-</style>
-
-<link rel="shortcut icon" href="http://www.comcast.net/favicon.ico"
-type="image/vnd.microsoft.icon">
+	<title>ATI HD Registry Tweaks</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="//www.comcast.net/favicon.ico" type="image/vnd.microsoft.icon" />
+	<link href="../css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="../css/site.min.css" rel="stylesheet" />
+	<!-- All styles above here. HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="../js/html5shiv.js"></script>
+	  <script src="../js/respond.min.js"></script>
+	<![endif]-->
 </head>
+<body data-spy="scroll" data-target=".sidebar">
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-inner">
+			<!-- Mobile -->
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="/~exdeus"><i class="icon-home" style="vertical-align:baseline"></i> ExDeus</a>
+				</div>
+				<!-- Regular -->
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="../ati-hd2x00">ATI HD Registry Tweaks</a></li>
+						<li><a href="../stbfirewire">ExDeus STB Firewire Driver Package</a></li>
+						<li><a href="../WMCRecordingStoragePooler">WMC Recording Storage Pooler</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
 
-<body bgcolor="#F9FAFE" lang=EN-US link=blue vlink=purple>
+	<div class="container">
+		<div class="row">
+			<!-- Sidebar -->
+			<nav class="span3 sidebar hidden-print" role="complementary">
+				<ul class="nav nav-list bs-docs-sidenav affix" role="navigation">
+					<li>
+						<a href="#description">Description
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#download">Download
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#license">License
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#details">Details
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#agp">AGP Support
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#uac">User Account Control
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#redshift">Red-Shift
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#changelog">Changelog
+							<i class="icon-chevron-right"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-<div class="menu">
-    <ul>
-        <li><a href="..">Menu</a></li>
-        <li><a href="../ati-hd2x00">ATI HD Registry Tweaks</a></li>
-        <li><a href="../WMCRecordingStoragePooler">WMC Recording Storage Pooler</a></li>
-        <li><a href="../ChromeFirefoxSearchKeywordImporter">Chrome Search Keyword Importer</a></li>
-        <li><a href="../stbfirewire">STB Firewire Drivers</a></li>
-    </ul>
-</div>
+			<!-- Main Content -->
+			<div class="span9" role="main">
+				<div class="page-header">
+					<h1>
+						ATI HD Registry Tweaks for HTPCs<br />
+						<small>Supports Windows XP, MCE, Vista, 7</small>
+					</h1>
+				</div>
 
-<div class=Section1>
+				<section id="description">
+					<div class="row">
+						<div class="span7">
+							<p>
+								The ATI HD Registry Tweaks script is designed to add values to the Windows registry. Changing
+								anything in the registry can be hazardous. No warranty is offered or implied.
+								<strong>Use at your own risk!</strong>
+												</p>
+												<p>
+													The script will add or remove a number of registry tweaks to enhance the
+								performance of ATI/AMD HD2000, HD3000, HD4000, HD5000, HD6000 &amp; HD7000 series video cards for
+								use in HTPCs.
+												</p>
 
-<table class=MsoNormalTable border=0 cellspacing=4 cellpadding=0>
- <tr>
-  <td width=640 style='width:480.0pt;padding:0in 0in 0in 0in'>
-  <h2>ATI HD Registry Tweaks for HTPCs</h2>
-  <form id=cse-search-box>
-  <p class=MsoNormal><span style='display:none'><INPUT TYPE="hidden" NAME="cx" VALUE="partner-pub-2641769890115210:wjbvczuo7bn"></span><span
-  style='display:none'><INPUT TYPE="hidden" NAME="ie" VALUE="ISO-8859-1"></span><INPUT TYPE="text" SIZE="31" NAME="q"><INPUT TYPE="submit" ACTION="http://www.google.com/cse" VALUE="Search" NAME="sa"></p>
-  </form>
-  <p><span style='display:none'><script  type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en">
-  </script></span>Supports Windows 7, Vista, XP &amp; MCE.</p>
-  <p>This script is designed to add values to the Windows registry. Changing
-  anything in the registry can be hazardous. No warranty is offered or implied.
-  <b>Use at your own risk!</b></p>
-  <p>This script will add or remove a number of registry tweaks to enhance the
-  performance of ATI HD2000, HD3000, HD4000 &amp; HD5000 series video cards for
-  use in HTPCs.</p>
-  <p><b>The simple way to use this program:</b><br>
-  <br>
-  Run the script (double-click). When you are prompted to approve a video
-  device, read the &quot;Device Description&quot;. If it looks like a
-  description for your video card, go ahead and answer 'Yes' to agree that it
-  is the correct device. There is no harm caused by adding the settings under
-  multiple video devices, or even under video devices that aren't your active
-  video card. The settings will be ignored by other devices.</p>
-  <p><b>To make it more complicated:</b><br>
-  <br>
-  Under Windows XP / MCE, if you want to add a level of verification that you
-  have the correct video device, open the ATI Catalyst Control Center, and
-  select the Information Center &gt; Graphics Software section. The 2D Driver
-  Path will show the GUID (the number between the curly brackets,
-  &quot;{}&quot;) for your active video device. When you run this program, you
-  will be prompted for each video device on your system. When you see the GUID
-  for your active video device, approve that device to add the registry
-  settings.</p>
-  <p>Under Windows 7 / Vista, the path in the CCC will not match the one
-  reported by this program, because this program uses a different registry key
-  that mirrors (copies its values) to the one listed in the CCC.</p>
-  <p>You will be prompted to approve the correct video device before anything
-  in the registry is changed. To add settings for multiple devices, simply
-  re-run the program and select a different device. In Windows XP / MCE, the
-  registry tweaks will be applied to all outputs, e.g., 0000 and 0001. In
-  Windows Vista, the registry tweaks are applied uniformly to the active
-  device, which applies to all outputs on that device.</p>
-  <p class=MsoNormal><br>
-  <br>
-  <a name=download id=download></a></p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <h2>Download</h2>
-  <h3>Save the .vbs file to your computer, then double-click on it to run.</h3>
-  <h3>Internet Explorer: Right-click and select 'Save Target As...'</h3>
-  <h3>Firefox: Right-click and select 'Save Link As...'</h3>
-  <h1><a href="ATI_HD_Reg_Tweaks_0.16.vbs">Download ATI HD Registry Tweaks 0.16</a></h1>
-  <p>This is a program written in VBScript. You can view the source code in
-  your browser or in any text editor. If you double-click it, it will run using
-  the Windows Script Host, included with every version of Windows. Your
-  anti-virus software may bark when you download or attempt to run this,
-  because VBScript is fairly powerful and .vbs files have been used to do some
-  malicious things in the past. I have no malicious intentions, so I suggest
-  you let the program run, but if you're uncomfortable doing it, don't.</p>
-  <p class=MsoNormal><br>
-  <br>
-  </p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><script  type="text/javascript">
-<!--
-google_ad_client = "pub-2641769890115210";
-/* 728x90 Leaderboard, created 5/18/08 */
-google_ad_slot = "5551946894";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-  </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>&nbsp;</p>
-  
-  <a name=license id=license></a>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <h2>Microsoft Reciprocal License (Ms-RL)</h2>
-  <p><span style='font-size:10.0pt;font-weight:normal'>This license governs
-  use of the accompanying software. If you use the software, you accept this
-  license. If you do not accept the license, do not use the software.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>1. Definitions</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>The terms
-  &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative
-  works,&quot; and &quot;distribution&quot; have the same meaning here as under
-  U.S. copyright law.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>A
-  &quot;contribution&quot; is the original software, or any additions or
-  changes to the software.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>A
-  &quot;contributor&quot; is any person that distributes its contribution under
-  this license.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>&quot;Licensed patents&quot;
-  are a contributor's patent claims that read directly on its contribution.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>2. Grant of Rights</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(A) Copyright Grant-
-  Subject to the terms of this license, including the license conditions and
-  limitations in section 3, each contributor grants you a non-exclusive,
-  worldwide, royalty-free copyright license to reproduce its contribution,
-  prepare derivative works of its contribution, and distribute its contribution
-  or any derivative works that you create.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(B) Patent Grant-
-  Subject to the terms of this license, including the license conditions and
-  limitations in section 3, each contributor grants you a non-exclusive,
-  worldwide, royalty-free license under its licensed patents to make, have
-  made, use, sell, offer for sale, import, and/or otherwise dispose of its
-  contribution in the software or derivative works of the contribution in the
-  software.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>3. Conditions and
-  Limitations</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(A) Reciprocal Grants-
-  For any file you distribute that contains code from the software (in source
-  code or binary format), you must provide recipients the source code to that
-  file along with a copy of this license, which license will govern that file.
-  You may license other files that are entirely your own work and do not
-  contain code from the software under any terms you choose.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(B) No Trademark
-  License- This license does not grant you rights to use any contributors'
-  name, logo, or trademarks.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(C) If you bring a
-  patent claim against any contributor over patents that you claim are
-  infringed by the software, your patent license from such contributor to the
-  software ends automatically.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(D) If you distribute
-  any portion of the software, you must retain all copyright, patent,
-  trademark, and attribution notices that are present in the software.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(E) If you distribute
-  any portion of the software in source code form, you may do so only under
-  this license by including a complete copy of this license with your
-  distribution. If you distribute any portion of the software in compiled or
-  object code form, you may only do so under a license that complies with this
-  license.</span></p>
-  <p><span style='font-size:10.0pt;font-weight:normal'>(F) The software is
-  licensed &quot;as-is.&quot; You bear the risk of using it. The contributors give
-  no express warranties, guarantees or conditions. You may have additional
-  consumer rights under your local laws which this license cannot change. To
-  the extent permitted under your local laws, the contributors exclude the
-  implied warranties of merchantability, fitness for a particular purpose and
-  non-infringement.</span></p>  
-  <p>&nbsp;</p>
-  
-  <a name=details id=details></a>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <h2>Details</h2>
-  <p>See <a
-  href="http://www.avsforum.com/avs-vb/showpost.php?p=11622510&amp;postcount=2011">my
-  AVS Forum post</a> for details on the registry settings.</p>
-  <p>See <a
-  href="http://www.avsforum.com/avs-vb/showpost.php?p=11659897&amp;postcount=2121">arfster's
-  AVS Forum post</a> for details on the effects of each setting.</p>
-  <p>The following registry settings are applied:</p>
-  <h3>All HD2000, HD3000, HD4000 &amp; HD5000 Models</h3>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;Denoise_NA&quot; =
-       &quot;0&quot; - Enables the Denoise slider in the CCC.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;Detail_NA&quot; =
-       &quot;0&quot; - Enables the Detail slider in the CCC.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_DetailEnhance&quot; =
-       &quot;0&quot; - Disables detail (edge) enhancement.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_NOHDDECODE&quot; =
-       &quot;0&quot; - Enables HD MPEG2 decoding.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_WMV_NA&quot; =
-       &quot;0&quot; - Enables WMV acceleration checkbox.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;HWUVD_ForceMPEG2&quot; =
-       &quot;1&quot; - Enables MPEG2 decoding using VMR9 with dual displays.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;SORTOverrideVidSizeCaps&quot;
-       = &quot;2800000&quot; - Enables fullscreen decoding for 1080p displays
-       (applies to Catalyst 7.7 and earlier).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;TrDenoise&quot; =
-       &quot;0&quot; - Disables denoising for both HD and SD.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;UseBT601CSC&quot; =
-       &quot;1&quot; - Enables use of consistent colorspaces for HD and SD.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForceHDDenoise&quot; =
-       &quot;0&quot; - Disables denoising only for HD formats.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForceMaxResSize&quot; =
-       &quot;2800000&quot; - Enables fullscreen decoding for 1080p displays
-       (applies to Catalyst 7.8 and later).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForceUVDH264&quot; =
-       &quot;1&quot; - Enables H.264 decoding with dual displays.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForceUVDVC1&quot; =
-       &quot;1&quot; - Enables VC-1 decoding with dual displays.</span></li>
-  </ul>
-  <h3>HD2400 Model Only</h3>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_Only24FPS1080MPEG2&quot;
-       = &quot;0&quot; - Enables MPEG2 decoding for formats other than
-       1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_Only24FPS1080H264&quot; =
-       &quot;0&quot; - Enables H.264 decoding for formats other than 1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DXVA_Only24FPS1080VC1&quot; =
-       &quot;0&quot; - Enables VC-1 decoding for formats other than 1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;SORTOverrideFPSCaps&quot; =
-       &quot;0&quot; - Enables decoding for various framerates (applies to
-       Catalyst 7.7 and earlier).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForce24FPS1080MPEG2&quot; =
-       &quot;0&quot; - Enables MPEG2 decoding for formats other than
-       1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForce24FPS1080H264&quot; =
-       &quot;0&quot; - Enables H.264 decoding for formats other than
-       1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForce24FPS1080VC1&quot; =
-       &quot;0&quot; - Enables VC-1 decoding for formats other than 1080@24fps.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;VForceDeint&quot; =
-       &quot;6&quot; - Enables all deinterlacing modes (Motion Adaptive, Vector
-       Adaptive).</span></li>
-  </ul>
-  <h3>HD2600, HD3000, HD4000 &amp; HD5000 Models Only</h3>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;ColorVibrance_DEF&quot; =
-       &quot;0&quot; - Disables Color Vibrance control (must also use
-       ColorVibrance_DE_MIN).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;ColorVibrance_DE_MIN&quot; =
-       &quot;0&quot; - Disables Color Vibrance control (must also use
-       ColorVibrance_DEF).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;ColorVibrance_NA&quot; =
-       &quot;0&quot; - Enables the Color Vibrance slider in the CCC.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DI_METHOD&quot; =
-       &quot;5&quot; - Enables Vector Adaptive deinterlacing (must also use
-       DI_METHOD_DEF).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;DI_METHOD_DEF&quot; =
-       &quot;5&quot; - Enables Vector Adaptive deinterlacing (must also use
-       DI_METHOD).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;Fleshtone_DEF&quot; =
-       &quot;0&quot; - Disables Fleshtone control (must also use
-       Fleshtone_DE_MIN).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;Fleshtone_DE_MIN&quot; =
-       &quot;0&quot; - Disables Fleshtone control (must also use
-       Fleshtone_DEF).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>&quot;Fleshtone_NA&quot; =
-       &quot;0&quot; - Enables the Fleshtone slider in the CCC.</span></li>
-  </ul>
-  <p class=MsoNormal><br>
-  <br>
-  <a name=AGP id=AGP></a></p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><script  type="text/javascript">
-<!--
-	google_ad_client = "pub-2641769890115210";
-	/* 728x15, Links, created 5/20/08 */
-	google_ad_slot = "7724260402";
-	google_ad_width = 728;
-	google_ad_height = 15;
-	//-->
+												<h3>The simple way to use this program</h3>
+												<p>
+													Run the script (double-click). When you are prompted to approve a video
+								device, read the &quot;Device Description&quot;. If it looks like a
+								description for your video card, go ahead and answer 'Yes' to agree that it
+								is the correct device. There is no harm caused by adding the settings under
+								multiple video devices, or even under video devices that aren't your active
+								video card. The settings will be ignored by other devices.
+												</p>
+												<h3>To make it more complicated</h3>
+												<p>
+													Under Windows XP / MCE, if you want to add a level of verification that you
+								have the correct video device, open the ATI Catalyst Control Center, and
+								select the Information Center &gt; Graphics Software section. The 2D Driver
+								Path will show the GUID (the number between the curly brackets,
+								&quot;{}&quot;) for your active video device. When you run this program, you
+								will be prompted for each video device on your system. When you see the GUID
+								for your active video device, approve that device to add the registry
+								settings.
+												</p>
+												<p>
+													Under Windows 7 / Vista, the path in the CCC will not match the one
+								reported by this program, because this program uses a different registry key
+								that mirrors (copies its values) to the one listed in the CCC.
+												</p>
+												<p>
+													You will be prompted to approve the correct video device before anything
+								in the registry is changed. To add settings for multiple devices, simply
+								re-run the program and select a different device. In Windows XP / MCE, the
+								registry tweaks will be applied to all outputs, e.g., 0000 and 0001. In
+								Windows Vista, the registry tweaks are applied uniformly to the active
+								device, which applies to all outputs on that device.
+							</p>
+						</div>
+						<div class="span2">
+							<script  type="text/javascript">
+								<!--
+								google_ad_client = "pub-2641769890115210";
+								/* 160x600 Wide Skyscraper, created 5/20/08 */
+								google_ad_slot = "6466699766";
+								google_ad_width = 160;
+								google_ad_height = 600;
+								//-->
+							</script>							<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+						</div>
+					</div>
+				</section>
+
+				<section id="download">
+					<div class="page-header">
+						<h2>Download</h2>
+					</div>
+					
+
+					<div class="well">
+						<h3>Save the .vbs file to your computer, then double-click it to run.</h3>
+
+						<p>
+							<span class="label label-default">Internet Explorer</span>  <strong>Right-click and select 'Save Target As...'</strong><br />
+							<span class="label label-default">Firefox/Chrome/Safari</span> <strong>Right-click and select 'Save Link As...'</strong>
+						</p>
+						
+						<h3>
+							<a href="ATI_HD_Reg_Tweaks_0.16.vbs">
+								<strong>
+									Download ATI HD Registry Tweaks 0.16 
+									<i class="icon-download"></i>
+								</strong>
+							</a>
+						</h3>
+					</div>
+					<div class="alert alert-block alert-info">
+						<div class="panel-heading">
+							<i class="icon-info-sign"></i>
+							<strong>Note</strong>
+						</div>
+						<div class="panel-body">
+							<em>								ATI HD Registry Tweaks is a program written in VBScript. You can view the source code in
+								your browser or in any text editor. If you double-click it on your PC, it will run using
+								the Windows Script Host, included with every version of Windows. Your
+								anti-virus software may bark when you download or attempt to run this,
+								because VBScript is fairly powerful and .vbs files have been used to do some
+								malicious things in the past. I have no malicious intentions, so I suggest
+								you let the program run, but if you're uncomfortable doing it, don't.
+								</em>
+						</div>
+					</div>
+					
+				</section>
+
+				<div>
+					<script  type="text/javascript">
+						<!--
+						google_ad_client = "pub-2641769890115210";
+						/* 728x90 Leaderboard, created 5/18/08 */
+						google_ad_slot = "5551946894";
+						google_ad_width = 728;
+						google_ad_height = 90;
+						//-->
+					</script>
+					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+
+				<section id="license">
+					<div class="page-header">
+						<h2>Microsoft Reciprocal License (Ms-RL)</h2>
+					</div>
+					<p>
+						This license governs
+						use of the accompanying software. If you use the software, you accept this
+						license. If you do not accept the license, do not use the software.
+										</p>
+										<p>1. Definitions</p>
+										<p>
+											The terms
+						&quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative
+						works,&quot; and &quot;distribution&quot; have the same meaning here as under
+						U.S. copyright law.
+										</p>
+										<p>
+											A
+						&quot;contribution&quot; is the original software, or any additions or
+						changes to the software.
+										</p>
+										<p>
+											A
+						&quot;contributor&quot; is any person that distributes its contribution under
+						this license.
+										</p>
+										<p>
+											&quot;Licensed patents&quot;
+						are a contributor's patent claims that read directly on its contribution.
+										</p>
+										<p>2. Grant of Rights</p>
+										<p>
+											(A) Copyright Grant-
+						Subject to the terms of this license, including the license conditions and
+						limitations in section 3, each contributor grants you a non-exclusive,
+						worldwide, royalty-free copyright license to reproduce its contribution,
+						prepare derivative works of its contribution, and distribute its contribution
+						or any derivative works that you create.
+										</p>
+										<p>
+											(B) Patent Grant-
+						Subject to the terms of this license, including the license conditions and
+						limitations in section 3, each contributor grants you a non-exclusive,
+						worldwide, royalty-free license under its licensed patents to make, have
+						made, use, sell, offer for sale, import, and/or otherwise dispose of its
+						contribution in the software or derivative works of the contribution in the
+						software.
+										</p>
+										<p>
+											3. Conditions and
+						Limitations
+										</p>
+										<p>
+											(A) Reciprocal Grants-
+						For any file you distribute that contains code from the software (in source
+						code or binary format), you must provide recipients the source code to that
+						file along with a copy of this license, which license will govern that file.
+						You may license other files that are entirely your own work and do not
+						contain code from the software under any terms you choose.
+										</p>
+										<p>
+											(B) No Trademark
+						License- This license does not grant you rights to use any contributors'
+						name, logo, or trademarks.
+										</p>
+										<p>
+											(C) If you bring a
+						patent claim against any contributor over patents that you claim are
+						infringed by the software, your patent license from such contributor to the
+						software ends automatically.
+										</p>
+										<p>
+											(D) If you distribute
+						any portion of the software, you must retain all copyright, patent,
+						trademark, and attribution notices that are present in the software.
+										</p>
+										<p>
+											(E) If you distribute
+						any portion of the software in source code form, you may do so only under
+						this license by including a complete copy of this license with your
+						distribution. If you distribute any portion of the software in compiled or
+						object code form, you may only do so under a license that complies with this
+						license.
+										</p>
+										<p>
+											(F) The software is
+						licensed &quot;as-is.&quot; You bear the risk of using it. The contributors give
+						no express warranties, guarantees or conditions. You may have additional
+						consumer rights under your local laws which this license cannot change. To
+						the extent permitted under your local laws, the contributors exclude the
+						implied warranties of merchantability, fitness for a particular purpose and
+						non-infringement.
+										</p>
+				</section>
+
+				<section id="details">
+					<div class="page-header">
+						<h2>Details</h2>
+					</div>
+					<p>See <a
+					href="http://www.avsforum.com/avs-vb/showpost.php?p=11622510&amp;postcount=2011">my
+					AVS Forum post</a> for details on the registry settings.</p>
+					<p>See <a
+					href="http://www.avsforum.com/avs-vb/showpost.php?p=11659897&amp;postcount=2121">arfster's
+					AVS Forum post</a> for details on the effects of each setting.</p>
+					<p>The following registry settings are applied:</p>
+					<h3>All HD2000, HD3000, HD4000, HD5000, HD6000 &amp; HD7000 Models</h3>
+					<ul type=disc>
+					 <li>
+							 &quot;Denoise_NA&quot; =
+							 &quot;0&quot; - Enables the Denoise slider in the CCC.</li>
+					 <li>
+							 &quot;Detail_NA&quot; =
+							 &quot;0&quot; - Enables the Detail slider in the CCC.</li>
+					 <li>
+							 &quot;DXVA_DetailEnhance&quot; =
+							 &quot;0&quot; - Disables detail (edge) enhancement.</li>
+					 <li>
+							 &quot;DXVA_NOHDDECODE&quot; =
+							 &quot;0&quot; - Enables HD MPEG2 decoding.</li>
+					 <li>
+							 &quot;DXVA_WMV_NA&quot; =
+							 &quot;0&quot; - Enables WMV acceleration checkbox.</li>
+					 <li>
+							 &quot;HWUVD_ForceMPEG2&quot; =
+							 &quot;1&quot; - Enables MPEG2 decoding using VMR9 with dual displays.</li>
+					 <li>
+							 &quot;SORTOverrideVidSizeCaps&quot;
+							 = &quot;2800000&quot; - Enables fullscreen decoding for 1080p displays
+							 (applies to Catalyst 7.7 and earlier).</li>
+					 <li>
+							 &quot;TrDenoise&quot; =
+							 &quot;0&quot; - Disables denoising for both HD and SD.</li>
+					 <li>
+							 &quot;UseBT601CSC&quot; =
+							 &quot;1&quot; - Enables use of consistent colorspaces for HD and SD.</li>
+					 <li>
+							 &quot;VForceHDDenoise&quot; =
+							 &quot;0&quot; - Disables denoising only for HD formats.</li>
+					 <li>
+							 &quot;VForceMaxResSize&quot; =
+							 &quot;2800000&quot; - Enables fullscreen decoding for 1080p displays
+							 (applies to Catalyst 7.8 and later).</li>
+					 <li>
+							 &quot;VForceUVDH264&quot; =
+							 &quot;1&quot; - Enables H.264 decoding with dual displays.</li>
+					 <li>
+							 &quot;VForceUVDVC1&quot; =
+							 &quot;1&quot; - Enables VC-1 decoding with dual displays.</li>
+					</ul>
+					<h3>HD2400 Model Only</h3>
+					<ul type=disc>
+					 <li>
+							 &quot;DXVA_Only24FPS1080MPEG2&quot;
+							 = &quot;0&quot; - Enables MPEG2 decoding for formats other than
+							 1080@24fps.</li>
+					 <li>
+							 &quot;DXVA_Only24FPS1080H264&quot; =
+							 &quot;0&quot; - Enables H.264 decoding for formats other than 1080@24fps.</li>
+					 <li>
+							 &quot;DXVA_Only24FPS1080VC1&quot; =
+							 &quot;0&quot; - Enables VC-1 decoding for formats other than 1080@24fps.</li>
+					 <li>
+							 &quot;SORTOverrideFPSCaps&quot; =
+							 &quot;0&quot; - Enables decoding for various framerates (applies to
+							 Catalyst 7.7 and earlier).</li>
+					 <li>
+							 &quot;VForce24FPS1080MPEG2&quot; =
+							 &quot;0&quot; - Enables MPEG2 decoding for formats other than
+							 1080@24fps.</li>
+					 <li>
+							 &quot;VForce24FPS1080H264&quot; =
+							 &quot;0&quot; - Enables H.264 decoding for formats other than
+							 1080@24fps.</li>
+					 <li>
+							 &quot;VForce24FPS1080VC1&quot; =
+							 &quot;0&quot; - Enables VC-1 decoding for formats other than 1080@24fps.</li>
+					 <li>
+							 &quot;VForceDeint&quot; =
+							 &quot;6&quot; - Enables all deinterlacing modes (Motion Adaptive, Vector
+							 Adaptive).</li>
+					</ul>
+					<h3>HD2600, HD3000, HD4000, HD5000, HD6000 &amp; HD7000 Models Only</h3>
+					<ul type=disc>
+					 <li>
+							 &quot;ColorVibrance_DEF&quot; =
+							 &quot;0&quot; - Disables Color Vibrance control (must also use
+							 ColorVibrance_DE_MIN).</li>
+					 <li>
+							 &quot;ColorVibrance_DE_MIN&quot; =
+							 &quot;0&quot; - Disables Color Vibrance control (must also use
+							 ColorVibrance_DEF).</li>
+					 <li>
+							 &quot;ColorVibrance_NA&quot; =
+							 &quot;0&quot; - Enables the Color Vibrance slider in the CCC.</li>
+					 <li>
+							 &quot;DI_METHOD&quot; =
+							 &quot;5&quot; - Enables Vector Adaptive deinterlacing (must also use
+							 DI_METHOD_DEF).</li>
+					 <li>
+							 &quot;DI_METHOD_DEF&quot; =
+							 &quot;5&quot; - Enables Vector Adaptive deinterlacing (must also use
+							 DI_METHOD).</li>
+					 <li>
+							 &quot;Fleshtone_DEF&quot; =
+							 &quot;0&quot; - Disables Fleshtone control (must also use
+							 Fleshtone_DE_MIN).</li>
+					 <li>
+							 &quot;Fleshtone_DE_MIN&quot; =
+							 &quot;0&quot; - Disables Fleshtone control (must also use
+							 Fleshtone_DEF).</li>
+					 <li>
+							 &quot;Fleshtone_NA&quot; =
+							 &quot;0&quot; - Enables the Fleshtone slider in the CCC.</li>
+					</ul>
+				</section>
+
+				<div>
+					<script  type="text/javascript">
+						<!--
+						google_ad_client = "pub-2641769890115210";
+						/* 728x15, Links, created 5/20/08 */
+						google_ad_slot = "7724260402";
+						google_ad_width = 728;
+						google_ad_height = 15;
+						//-->
+					</script>					<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+
+				<section id="agp">
+					<div class="page-header">
+						<h2>If your AGP card is not supported by the latest ATI drivers...</h2>
+					</div>
+					<p>Sometimes the drivers don't get updated for every card for every driver
+					release, so you need to edit a couple files to add your card. Run the
+					installer, and continue until you extract the driver into a folder under
+					C:\ATI\SUPPORT\. At the next opportunity, cancel the installation and
+					navigate to the C:\ATI\SUPPORT\ folder in Windows Explorer. Edit the files as
+					follows, and you can then run C:\ATI\SUPPORT\{Current
+					Version}\Driver\setup.exe.</p>
+					<p>The files you need to edit are: </p>
+					<h3>Windows 7 / Vista</h3>
+					<p><b>C:\ATI\SUPPORT\[Current
+					Version]\Driver\Packages\Drivers\Display\LH_INF\CX_*****.inf</b></p>
+					<p>Under &quot;[ATI.Mfg]&quot;, add the following lines. You can do a search
+					for &quot;HD 2400&quot; to put the lines with the other entries for the
+					HD2000 series, if you wish.</p>
+					<p>&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C4<br>
+					&quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610, PCI\VEN_1002&amp;DEV_94C6<br>
+					&quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9587<br>
+					&quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9586</p>
+					<p>The lines can be placed anywhere under the &quot;[ATI.Mfg]&quot; section.
+					For example, your entry could look as follows:</p>
+					<p>[ATI.Mfg]<br>
+					&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C4<br>
+					&quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C6<br>
+					&quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9587<br>
+					&quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9586</p>
+					<h3>Windows XP / MCE</h3>
+					<p><b>C:\ATI\SUPPORT\[Current Version]\Driver\Driver\XP_INF\CX_*****.inf</b></p>
+					<p>Under &quot;[ATI.Mfg.NTx86]&quot;, add the following lines. You can do a
+					search for &quot;HD 2400&quot; to put the lines with the other entries for
+					the HD2000 series, if you wish.</p>
+					<p>&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C4<br>
+					&quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C6<br>
+					&quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9587<br>
+					&quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9586</p>
+					<p>The lines can be placed anywhere under the &quot;[ATI.Mfg.NTx86]&quot;
+					section. For example, your entry could look as follows:</p>
+					<p>[ATI.Mfg.NTx86]<br>
+					&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C4<br>
+					&quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
+					PCI\VEN_1002&amp;DEV_94C6<br>
+					&quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9587<br>
+					&quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
+					PCI\VEN_1002&amp;DEV_9586</p>
+					<p><b>C:\ATI\SUPPORT\[Current Version]\Driver\Driver\CX_*****.INI<br>
+					C:\ATI\SUPPORT\[Current Version]\Driver\Driver\INSTALL.INI</b></p>
+					<p>In <b>both files</b>, under the &quot;[WINXP]&quot; section, add the
+					following at the end of the second line, which starts
+					&quot;R6=DriverPath_R6&quot;:</p>
+					<p>,0x94C4,0x94C6,0x9586,0x9587</p>
+					<p>For example, your entry could look as follows:</p>
+					<p>[WINXP]<br>
+					Label=R6,R6_2,R6_3,R6_4,R6_5,R6_6,R6_7,R6_8,R6_9,R6_10<br>
+					R6=DriverPath_R6,0x554F:0x149218BC,0x7162:0x3001147B,<b>0x94C4,0x94C6,0x9586,0x9587</b><br>
+					DriverPath_R6=\XP_INF,CX_52443.INF</p>
+				</section>
+
+				<div>
+					<script  type="text/javascript">
+						<!--
+						google_ad_client = "pub-2641769890115210";
+						/* 728x15, Links, created 5/20/08 */
+						google_ad_slot = "7724260402";
+						google_ad_width = 728;
+						google_ad_height = 15;
+						//-->
+					</script>
+					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+
+				<section id="uac">
+					<div class="page-header">
+						<h2>If you receive errors stating registry access was denied while using Windows 7 / Vista...</h2>
+					</div>
+					<p>It is likely that either your account or the program does not have
+					administrative rights, which under Windows Vista is usually caused by User
+					Account Control.</p>
+					<p>It is easiest to turn off User Account Control, but this would have
+					security implications for your entire computer. Please read the following
+					articles from Microsoft for advice on User Account Control:</p>
+					<p><a href="http://support.microsoft.com/kb/922708/en-us">How to use User
+					Account Control (UAC) in Windows Vista</a><br>
+					<a
+					href="http://windowshelp.microsoft.com/Windows/en-US/Help/58b3b879-924d-4e08-9358-c316055d3eae1033.mspx">Turn
+					User Account Control on or off</a></p>				</section>				<section id="redshift">					<div class="page-header">
+						<h2>If you see red-shift or flashes of color on red objects...</h2>
+					</div>
+					<p>For NTSC material, it seems to be related to framerate detection of NTSC
+					video material (29.97fps, interlaced). In the ATI CCC, try disabling pulldown
+					detection .</p>
+				</section>
+
+				<div>
+					<script  type="text/javascript">
+						<!--
+						google_ad_client = "pub-2641769890115210";
+						/* 728x15, Links, created 5/20/08 */
+						google_ad_slot = "7724260402";
+						google_ad_width = 728;
+						google_ad_height = 15;
+						//-->
+					</script>					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+
+				<section id="changelog">
+					<div class="page-header">
+						<h2>Changelog</h2>
+					</div>
+					<p>2009-12-31 0.16</p>
+					<ul type=disc>
+					 <li>
+							 Added Windows 7 support.</li>
+					 <li>
+							 Added HD5000 support.</li>
+					 <li>
+							 Added Microsoft Reciprocal License (Ms-RL) terms.</li>
+					</ul>
+					<p>2008-09-05 0.15</p>
+					<ul type=disc>
+					 <li>
+							 Added short descriptions to the
+							 dialog box for each registry setting.</li>
+					 <li>
+							 Added check for null values before
+							 attempting to delete HD2400 registry values.</li>
+					 <li>
+							 Added mention of ATI HD4000 series
+							 to use HD2600, HD3000 settings.</li>
+					 <li>
+							 Added Denoise_NA=0.</li>
+					 <li>
+							 Added Detail_NA=0.</li>
+					 <li>
+							 Added VForceDeint=6.</li>
+					 <li>
+							 Added VForceHDDenoise=0.</li>
+					</ul>
+					<p>2008-04-16 0.14</p>
+					<ul type=disc>
+					 <li>
+							 Added the ability to delete
+							 individual or all registry entries for a device.</li>
+					</ul>
+					<p>2008-03-21 0.13</p>
+					<ul type=disc>
+					 <li>
+							 Renamed and changed to apply to all
+							 HD2000 and HD3000 cards.</li>
+					 <li>
+							 Added prompt to ensure user is aware
+							 of dual display circumstances necessitating HWUVD_ForceMPEG2.</li>
+					 <li>
+							 Changed array implementations to
+							 allow for easier updating.</li>
+					</ul>
+					<p>2008-02-23 0.12</p>
+					<ul type=disc>
+					 <li>
+							 Modified implementation for Vista to
+							 use different registry keys under
+							 HKLM\System\CurrentControlSet\Control\Class.</li>
+					 <li>
+							 Applying the settings once there
+							 should mirror the settings to Control\Video for all ports of the device.</li>
+					 <li>
+							 Added links to resources on UAC if
+							 permissions prevent adding reg values under Vista.</li>
+					 <li>
+							 Added:
+							 &quot;VForceUVDVC1&quot;=&quot;1&quot;,
+							 &quot;VForceUVDH264&quot;=&quot;1&quot;,
+							 &quot;HWUVD_ForceMPEG2&quot;=&quot;1&quot;</li>
+					</ul>
+					<p>2007-10-31 0.11:</p>
+					<ul type=disc>
+					 <li>
+							 Added support for all video device
+							 numbers, not just &quot;0000&quot; and &quot;0001&quot;.</li>
+					 <li>
+							 Fixed final &quot;Done&quot; dialog
+							 to work properly under Vista.</li>
+					 <li>
+							 Updated final &quot;Done&quot;
+							 dialog to display settings for all device numbers.</li>
+					 <li>
+							 Added check for registry permissions
+							 each time a value is set.</li>
+					</ul>
+					<p>2007-10-30 0.10:</p>
+					<ul type=disc>
+					 <li>
+							 Added DXVA_NOHDDECODE to apply to
+							 the HD2600, as HD-MPEG2 DXVA was broken in the ATI Catalyst 7.10
+							 drivers.</li>
+					</ul>
+					<p>2007-09-27 0.9:</p>
+					<ul type=disc>
+					 <li>
+							 Made comments in the file header a
+							 little more generic.</li>
+					 <li>
+							 Changed the recursive SetRegValue
+							 sub call in SetRegValue() to have the correct arguments.</li>
+					</ul>
+					<p>2007-09-24 0.8:</p>
+					<ul type=disc>
+					 <li>
+							 Added change for sloppy programming:
+							 Reset message string at the beginning of Done() sub.</li>
+					</ul>
+					<p>2007-09-23 0.7:</p>
+					<ul type=disc>
+					 <li>
+							 Added checking for user permissions
+							 to edit registry, allowing for Vista UAC. Previously, adding settings to
+							 registry would fail silently.</li>
+					 <li>
+							 Upgraded for efficiency: Changed big
+							 loops with interior branching to exterior branching with little loops.</li>
+					 <li>
+							 Added Done() sub to show current
+							 registry settings at the end of processing.</li>
+					 <li>
+							 Added SetRegValue() sub for checking
+							 permissions and adding reg values. (Not currently implemented. To be
+							 used in a future upgrade, if needed.)</li>
+					</ul>
+					<p>2007-09-19 0.6:</p>
+					<ul type=disc>
+					 <li>
+							 Changed detection for Vista to
+							 case-insenstive string compare.</li>
+					</ul>
+					<p>2007-09-18 0.5:</p>
+					<ul type=disc>
+					 <li>
+							 Added support for primary video
+							 device as &quot;0001&quot; and secondary as &quot;0000&quot;. Previously,
+							 assumed primary was &quot;0000&quot;.</li>
+					</ul>
+					<p>2007-09-18 0.4:</p>
+					<ul type=disc>
+					 <li>
+							 Added SORTOverrideVidSizeCaps =
+							 2800000.</li>
+					 <li>
+							 Added ColorVibrance_NA = 0 for 2600.</li>
+					 <li>
+							 Added Fleshtone_NA = 0 for 2600. </li>
+					</ul>
+					<p>2007-09-18 0.3:</p>
+					<ul type=disc>
+					 <li>
+							 Initial public release.</li>
+					 <li>
+							 Support for Win XP/MCE and Vista.</li>
+					 <li>
+							 Support for multiple video devices
+							 (cycles thru devices).</li>
+					 <li>
+							 Adds settings for both primary and
+							 secondary video devices.</li>
+					</ul>
+				</section>
+
+				<div>
+					<script  type="text/javascript">
+						<!--
+						google_ad_client = "pub-2641769890115210";
+						/* 468x60, Firefox, created 5/20/08 */
+						google_ad_slot = "8807717046";
+						google_ad_width = 468;
+						google_ad_height = 60;
+						//-->
+					</script>					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<img border="0" width="48" height="48" src="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi" alt="Visit Counter" /><br />
+		<small>
+			Updated&nbsp;
+			<script type="text/javascript">
+				document.write((new Date(document.lastModified)).toUTCString());
+			</script>
+		</small><br />
+		<small>&copy; 2007-2013 ExDeus. All rights reserved.</small>
+	</footer>
+
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>
+		(window.jQuery || document.write('<script src="../js/jquery-1.10.2.min.js"><\/script>'));
+	</script>
 	
-  </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>&nbsp;</p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <h2>If your AGP card is not supported by the latest ATI drivers...</h2>
-  <p>Sometimes the drivers don't get updated for every card for every driver
-  release, so you need to edit a couple files to add your card. Run the
-  installer, and continue until you extract the driver into a folder under
-  C:\ATI\SUPPORT\. At the next opportunity, cancel the installation and
-  navigate to the C:\ATI\SUPPORT\ folder in Windows Explorer. Edit the files as
-  follows, and you can then run C:\ATI\SUPPORT\{Current
-  Version}\Driver\setup.exe.</p>
-  <p>The files you need to edit are: </p>
-  <h3>Windows 7 / Vista</h3>
-  <p><b>C:\ATI\SUPPORT\[Current
-  Version]\Driver\Packages\Drivers\Display\LH_INF\CX_*****.inf</b></p>
-  <p>Under &quot;[ATI.Mfg]&quot;, add the following lines. You can do a search
-  for &quot;HD 2400&quot; to put the lines with the other entries for the
-  HD2000 series, if you wish.</p>
-  <p>&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C4<br>
-  &quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610, PCI\VEN_1002&amp;DEV_94C6<br>
-  &quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9587<br>
-  &quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9586</p>
-  <p>The lines can be placed anywhere under the &quot;[ATI.Mfg]&quot; section.
-  For example, your entry could look as follows:</p>
-  <p>[ATI.Mfg]<br>
-  &quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C4<br>
-  &quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C6<br>
-  &quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9587<br>
-  &quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9586</p>
-  <h3>Windows XP / MCE</h3>
-  <p><b>C:\ATI\SUPPORT\[Current Version]\Driver\Driver\XP_INF\CX_*****.inf</b></p>
-  <p>Under &quot;[ATI.Mfg.NTx86]&quot;, add the following lines. You can do a
-  search for &quot;HD 2400&quot; to put the lines with the other entries for
-  the HD2000 series, if you wish.</p>
-  <p>&quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C4<br>
-  &quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C6<br>
-  &quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9587<br>
-  &quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9586</p>
-  <p>The lines can be placed anywhere under the &quot;[ATI.Mfg.NTx86]&quot;
-  section. For example, your entry could look as follows:</p>
-  <p>[ATI.Mfg.NTx86]<br>
-  &quot;ATI Radeon HD 2400 PRO AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C4<br>
-  &quot;ATI Radeon HD 2400 XT AGP&quot; = ati2mtag_RV610,
-  PCI\VEN_1002&amp;DEV_94C6<br>
-  &quot;ATI Radeon HD 2600 PRO AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9587<br>
-  &quot;ATI Radeon HD 2600 XT AGP&quot; = ati2mtag_RV630,
-  PCI\VEN_1002&amp;DEV_9586</p>
-  <p><b>C:\ATI\SUPPORT\[Current Version]\Driver\Driver\CX_*****.INI<br>
-  C:\ATI\SUPPORT\[Current Version]\Driver\Driver\INSTALL.INI</b></p>
-  <p>In <b>both files</b>, under the &quot;[WINXP]&quot; section, add the
-  following at the end of the second line, which starts
-  &quot;R6=DriverPath_R6&quot;:</p>
-  <p>,0x94C4,0x94C6,0x9586,0x9587</p>
-  <p>For example, your entry could look as follows:</p>
-  <p>[WINXP]<br>
-  Label=R6,R6_2,R6_3,R6_4,R6_5,R6_6,R6_7,R6_8,R6_9,R6_10<br>
-  R6=DriverPath_R6,0x554F:0x149218BC,0x7162:0x3001147B,<b>0x94C4,0x94C6,0x9586,0x9587</b><br>
-  DriverPath_R6=\XP_INF,CX_52443.INF</p>
-  <a name=uac id=uac></a>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><script  type="text/javascript">
-<!--
-	google_ad_client = "pub-2641769890115210";
-	/* 728x15, Links, created 5/20/08 */
-	google_ad_slot = "7724260402";
-	google_ad_width = 728;
-	google_ad_height = 15;
-	//-->
-	
-  </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>&nbsp;</p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <h2>If you receive errors stating registry access was denied while using
-  Windows 7 / Vista...</h2>
-  <p>It is likely that either your account or the program does not have
-  administrative rights, which under Windows Vista is usually caused by User
-  Account Control.</p>
-  <p>It is easiest to turn off User Account Control, but this would have
-  security implications for your entire computer. Please read the following
-  articles from Microsoft for advice on User Account Control:</p>
-  <p><a href="http://support.microsoft.com/kb/922708/en-us">How to use User
-  Account Control (UAC) in Windows Vista</a><br>
-  <a
-  href="http://windowshelp.microsoft.com/Windows/en-US/Help/58b3b879-924d-4e08-9358-c316055d3eae1033.mspx">Turn
-  User Account Control on or off</a></p>
-  <a name=redshift id=redshift></a>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <h2>If you see red-shift or flashes of color on red objects...</h2>
-  <p>For NTSC material, it seems to be related to framerate detection of NTSC
-  video material (29.97fps, interlaced). In the ATI CCC, try disabling pulldown
-  detection .</p>
-  <a name=changelog id=changelog></a>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <p class=MsoNormal><script  type="text/javascript">
-<!--
-	google_ad_client = "pub-2641769890115210";
-	/* 728x15, Links, created 5/20/08 */
-	google_ad_slot = "7724260402";
-	google_ad_width = 728;
-	google_ad_height = 15;
-	//-->
-	
-  </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>&nbsp;</p>
-  <div class=MsoNormal align=center style='text-align:center'>
-  <hr size=2 width="100%" align=center>
-  </div>
-  <p class=MsoNormal>&nbsp;</p>
-  <h2>Changelog</h2>
-  <p>2009-12-31 0.16</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Windows 7 support.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added HD5000 support.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Microsoft Reciprocal License (Ms-RL) terms.</span></li>
-  </ul>
-  <p>2008-09-05 0.15</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added short descriptions to the
-       dialog box for each registry setting.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added check for null values before
-       attempting to delete HD2400 registry values.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added mention of ATI HD4000 series
-       to use HD2600, HD3000 settings.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Denoise_NA=0.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Detail_NA=0.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added VForceDeint=6.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added VForceHDDenoise=0.</span></li>
-  </ul>
-  <p>2008-04-16 0.14</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added the ability to delete
-       individual or all registry entries for a device.</span></li>
-  </ul>
-  <p>2008-03-21 0.13</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Renamed and changed to apply to all
-       HD2000 and HD3000 cards.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added prompt to ensure user is aware
-       of dual display circumstances necessitating HWUVD_ForceMPEG2.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Changed array implementations to
-       allow for easier updating.</span></li>
-  </ul>
-  <p>2008-02-23 0.12</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Modified implementation for Vista to
-       use different registry keys under
-       HKLM\System\CurrentControlSet\Control\Class.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Applying the settings once there
-       should mirror the settings to Control\Video for all ports of the device.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added links to resources on UAC if
-       permissions prevent adding reg values under Vista.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added:
-       &quot;VForceUVDVC1&quot;=&quot;1&quot;,
-       &quot;VForceUVDH264&quot;=&quot;1&quot;,
-       &quot;HWUVD_ForceMPEG2&quot;=&quot;1&quot;</span></li>
-  </ul>
-  <p>2007-10-31 0.11:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added support for all video device
-       numbers, not just &quot;0000&quot; and &quot;0001&quot;.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Fixed final &quot;Done&quot; dialog
-       to work properly under Vista.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Updated final &quot;Done&quot;
-       dialog to display settings for all device numbers.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added check for registry permissions
-       each time a value is set.</span></li>
-  </ul>
-  <p>2007-10-30 0.10:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added DXVA_NOHDDECODE to apply to
-       the HD2600, as HD-MPEG2 DXVA was broken in the ATI Catalyst 7.10
-       drivers.</span></li>
-  </ul>
-  <p>2007-09-27 0.9:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Made comments in the file header a
-       little more generic.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Changed the recursive SetRegValue
-       sub call in SetRegValue() to have the correct arguments.</span></li>
-  </ul>
-  <p>2007-09-24 0.8:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added change for sloppy programming:
-       Reset message string at the beginning of Done() sub.</span></li>
-  </ul>
-  <p>2007-09-23 0.7:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added checking for user permissions
-       to edit registry, allowing for Vista UAC. Previously, adding settings to
-       registry would fail silently.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Upgraded for efficiency: Changed big
-       loops with interior branching to exterior branching with little loops.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Done() sub to show current
-       registry settings at the end of processing.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added SetRegValue() sub for checking
-       permissions and adding reg values. (Not currently implemented. To be
-       used in a future upgrade, if needed.)</span></li>
-  </ul>
-  <p>2007-09-19 0.6:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Changed detection for Vista to
-       case-insenstive string compare.</span></li>
-  </ul>
-  <p>2007-09-18 0.5:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added support for primary video
-       device as &quot;0001&quot; and secondary as &quot;0000&quot;. Previously,
-       assumed primary was &quot;0000&quot;.</span></li>
-  </ul>
-  <p>2007-09-18 0.4:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added SORTOverrideVidSizeCaps =
-       2800000.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added ColorVibrance_NA = 0 for 2600.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Added Fleshtone_NA = 0 for 2600. </span></li>
-  </ul>
-  <p>2007-09-18 0.3:</p>
-  <ul type=disc>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Initial public release.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Support for Win XP/MCE and Vista.</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Support for multiple video devices
-       (cycles thru devices).</span></li>
-   <li class=MsoNormal style='color:navy'><span style='font-size:10.0pt;
-       font-family:"Verdana","sans-serif"'>Adds settings for both primary and
-       secondary video devices.</span></li>
-  </ul>
-  </td>
-  <td width=160 valign=top style='width:120.0pt;padding:0in 0in 0in 0in'>
-  <p class=MsoNormal><script  type="text/javascript">
-<!--
-google_ad_client = "pub-2641769890115210";
-/* 160x600 Wide Skyscraper, created 5/20/08 */
-google_ad_slot = "6466699766";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-  </script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>&nbsp;</p>
-  </td>
- </tr>
-</table>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script>
+		($.fn.modal || document.write('<script src="../js/bootstrap.min.js"><\/script>'));
+	</script>
 
-<p class=MsoNormal><script  type="text/javascript">
-<!--
-google_ad_client = "pub-2641769890115210";
-/* 468x60, Firefox, created 5/20/08 */
-google_ad_slot = "8807717046";
-google_ad_width = 468;
-google_ad_height = 60;
-google_cpa_choice = ""; // on file
-//-->
-</script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>&nbsp;</p>
-
-<p>Updated&nbsp; <script language="JavaScript"  type="text/javascript">
-document.write((new Date(document.lastModified)).toUTCString());
-</script></p>
-
-<p><img border=0 width=48 height=48
-src="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi"
-alt="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi">&nbsp;&nbsp;
-<script  type="text/javascript">
-<!--
-google_ad_client = "pub-2641769890115210";
-/* 120x60, Google AdSense, created 5/20/08 */
-google_ad_slot = "8435617486";
-google_ad_width = 120;
-google_ad_height = 60;
-google_cpa_choice = ""; // on file
-//-->
-</script><script  type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></p>
-
-<h3 align=center style='text-align:center'><a name=guestbook id=guestbook>Please
-sign the guest book! Provide any feedback you feel to be worthwhile.</a></h3>
-
-<p class=MsoNormal align=center style='text-align:center'><a
-href="http://home.comcast.net/cgi-bin/GBEntry?owner=exdeus"><span
-style='text-decoration:none'><img border=0 width=88 height=31
-src="http://home.comcast.net/global-images/guestbook/sign_gb.jpg"
-alt="http://home.comcast.net/global-images/guestbook/sign_gb.jpg"></span></a></p>
-
-<p class=MsoNormal align=center style='text-align:center'><a
-href="http://home.comcast.net/cgi-bin/GBView?owner=exdeus"><span
-style='text-decoration:none'><img border=0 width=88 height=31
-src="http://home.comcast.net/global-images/guestbook/view_gb.jpg"
-alt="http://home.comcast.net/global-images/guestbook/view_gb.jpg"></span></a></p>
-
-<p class=MsoNormal><script  type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script  type="text/javascript">
-var pageTracker = _gat._getTracker("UA-4148123-1");
-pageTracker._setDomainName("exdeus.home.comcast.net")
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>&nbsp;</p>
-
-</div>
-
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4148123-1");
+		pageTracker._setDomainName("exdeus.home.comcast.net");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
 </body>
-
 </html>
+

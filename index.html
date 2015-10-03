@@ -1,58 +1,117 @@
+﻿<!DOCTYPE html>
 <html>
 <head>
-<title>ExDeus STB Firewire &amp; ATI HD Software</title>
-<link rel="shortcut icon" href="http://www.comcast.net/favicon.ico" type="image/vnd.microsoft.icon" />
-
-<meta name="msvalidate.01" content="C94423D759D9BED003B3A7927A227EDB" />
-
-<style>
-	p,h1,h2,h3 { font-family:Verdana; color:navy }
-	p,ul,li { font-size:10pt }
-</style>
+	<title>ExDeus</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="//www.comcast.net/favicon.ico" type="image/vnd.microsoft.icon" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="css/site.min.css" rel="stylesheet" />
+	<!-- All styles above here. HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="js/html5shiv.js"></script>
+	  <script src="js/respond.min.js"></script>
+	<![endif]-->
 </head>
-<body bgcolor="#f9fafe">
-<table border=0>
-<tr>
-<td>
-	<div>
-	<script type="text/javascript"><!--
-	google_ad_client = "pub-2641769890115210";
-	/* 728x90 Leaderboard, created 5/18/08 */
-	google_ad_slot = "5551946894";
-	google_ad_width = 728;
-	google_ad_height = 90;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
+<body>
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-inner">
+			<!-- Mobile -->
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="/~exdeus"><i class="icon-home" style="vertical-align:baseline"></i> ExDeus</a>
+				</div>
+				<!-- Regular -->
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="ati-hd2x00">ATI HD Registry Tweaks</a></li>
+						<li><a href="stbfirewire">ExDeus STB Firewire Driver Package</a></li>
+						<li><a href="WMCRecordingStoragePooler">WMC Recording Storage Pooler</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div>
+			<script type="text/javascript"><!--
+				google_ad_client = "pub-2641769890115210";
+				/* 728x90 Leaderboard, created 5/18/08 */
+				google_ad_slot = "5551946894";
+				google_ad_width = 728;
+				google_ad_height = 90;
+				//-->
+			</script>
+			<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+		</div>
+
+		<div class="well">
+			<h2>ATI HD Registry Tweaks for HTPCs</h2>
+			<p>
+				ATI HD Registry Tweaks is a small utility to add a number of registry tweaks to enhance the performance of 				ATI / AMD HD2000, HD3000, HD4000, HD5000, HD6000  &amp; HD7000 series video cards for use in HTPCs.
+			</p>
+			<a href="ati-hd2x00" class="btn btn-lg btn-primary">Learn more <i class="icon-chevron-right icon-white"></i></a>
+		</div>
+
+		<div class="well">
+			<h2>ExDeus STB Firewire Driver Package</h2>
+			<p>
+				ExDeus STB Firewire Driver Package for Windows XP/MCE/Vista/7 contains Firewire drivers for various set-top-boxes (STBs), 
+				allowing you to connect your cable STB to your Windows PC.
+			</p>
+			<a href="stbfirewire" class="btn btn-lg btn-primary">Learn more <i class="icon-chevron-right icon-white"></i></a>
+		</div>
+
+		<div class="well">
+			<div>
+				<img style="vertical-align:bottom;float:left;padding-right:10px" width=48 height=48 src=WMCRecordingStoragePooler/WMCRecordingStoragePooler2.png />
+				<h2>Windows Media Center Recording Storage Pooler</h2>
+			</div>
+			<p>
+				WMC Recording Storage Pooler creates a drive pool out of multiple storage drives to use for Recorded TV in Windows Media Center. 				WMC Recording Storage Pooler can create a drive pool out of local or network drives.
+			</p>
+			<a href="WMCRecordingStoragePooler" class="btn btn-lg btn-primary">Learn more <i class="icon-chevron-right icon-white"></i></a>
+		</div>
 	</div>
+	
+	<footer class="footer">
+		<img border="0" width="48" height="48" src="http://exdeus.home.comcast.net/~exdeus/site/exec/counter.cgi" alt="Visit Counter" /><br />
+		<small>Updated&nbsp;
+			<script type="text/javascript">
+				document.write((new Date(document.lastModified)).toUTCString());
+			</script>
+		</small><br />
+		<small>&copy; 2007-2013 ExDeus. All rights reserved.</small>
+	</footer>
 
-	<br /><br />
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>
+		// Fallback to loading jQuery from a local path if the CDN is unavailable
+		(window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>'));
+	</script>
 
-<h3>ATI HD Registry Tweaks</h3>
-<p><ul><li><a href="ati-hd2x00">ATI HD Registry Tweaks</a></li></ul></p>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script>
+		($.fn.modal || document.write('<script src="../js/bootstrap.min.js"><\/script>'));
+	</script>
 
-<h3>STB Firewire Driver Package</h3>
-<p><ul><li><a href="stbfirewire">STB Firewire Driver Package</a></li></ul></p>
-    
-<h3>Windows Media Center - Recording Storage Pooler</h3>
-<p><ul><li><a href="WMCRecordingStoragePooler">WMC Recording Storage Pooler</a></li></ul></p>
-
-</td>
-  
- </tr>
-</table>
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-4148123-1");
-pageTracker._setDomainName("exdeus.home.comcast.net")
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4148123-1");
+		pageTracker._setDomainName("exdeus.home.comcast.net");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
 </body>
 </html>
+
