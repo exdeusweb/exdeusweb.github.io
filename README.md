@@ -1,2 +1,2 @@
 # exdeusweb.github.io
-ExDeus - former Comcast home website from http://exdeus.home.comcast.net
+https://exdeusweb.github.io — former Comcast home website of ExDeus from http://exdeus.home.comcast.net
