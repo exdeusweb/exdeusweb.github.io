@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,6 +70,27 @@
     </Content>
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\stb\01.jpg" />
+    <Content Include="img\stb\01a.jpg" />
+    <Content Include="img\stb\02a.jpg" />
+    <Content Include="img\stb\03a.jpg" />
+    <Content Include="img\stb\03b.jpg" />
+    <Content Include="img\stb\04.jpg" />
+    <Content Include="img\stb\04a.jpg" />
+    <Content Include="img\stb\05a.jpg" />
+    <Content Include="img\stb\06a.jpg" />
+    <Content Include="img\stb\07a.jpg" />
+    <Content Include="img\stb\08a.jpg" />
+    <Content Include="img\stb\10.jpg" />
+    <Content Include="img\stb\11.jpg" />
+    <Content Include="img\stb\xp\xp01.jpg" />
+    <Content Include="img\stb\xp\xp02.jpg" />
+    <Content Include="img\stb\xp\xp03.jpg" />
+    <Content Include="img\stb\xp\xp04.jpg" />
+    <Content Include="img\stb\xp\xp05.jpg" />
+    <Content Include="img\stb\xp\xp06.jpg" />
+    <Content Include="img\stb\xp\xp07.jpg" />
+    <Content Include="img\stb\xp\xp08.jpg" />
     <Content Include="index.html" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
