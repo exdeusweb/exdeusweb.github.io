@@ -117,26 +117,40 @@
 				<section id="Description">
 					<div class="row">
 						<div class="span7">
-							<p>WMC Recording Storage Pooler creates a drive pool out of multiple storage
-								drives to use for Recorded TV in Windows Media Center. WMC Recording Storage
+							<p>WMC Recording Storage Pooler creates a drive pool out of multiple storage
+
+								drives to use for Recorded TV in Windows Media Center. WMC Recording Storage
+
 								Pooler can create a drive pool out of local or network drives.</p>
 
 							<h3>What is does</h3>
 					
-							<p>Based on a time interval you decide, the software checks a list of drives
-								you provide and sets the drive with the most available free space to be the
-								Recording Storage location. Any new recordings will be saved to the new drive
-								location, while any current recordings will finish at the old location. When
-								another drive has more available free space, it will become the new Recording
-								Storage drive.</p>
-								<p>WMC Recording Storage Pooler will create a storage pool from any number of
-								drives, and can change the Recording Storage location at any frequency of 1
+							<p>Based on a time interval you decide, the software checks a list of drives
+
+								you provide and sets the drive with the most available free space to be the
+
+								Recording Storage location. Any new recordings will be saved to the new drive
+
+								location, while any current recordings will finish at the old location. When
+
+								another drive has more available free space, it will become the new Recording
+
+								Storage drive.</p>
+
+								<p>WMC Recording Storage Pooler will create a storage pool from any number of
+
+								drives, and can change the Recording Storage location at any frequency of 1
+
 								or more minutes.</p>
 
-							<h3>Disclaimer</h3>
-							<p>This is a project I created to serve my own purposes and have decided to
-							share here. The software carries no warranty whatsoever, but if you find an
-							issue I will work to resolve it. Neither the software nor myself are
+							<h3>Disclaimer</h3>
+
+							<p>This is a project I created to serve my own purposes and have decided to
+
+							share here. The software carries no warranty whatsoever, but if you find an
+
+							issue I will work to resolve it. Neither the software nor myself are
+
 							associated or affiliated with Microsoft in any way.</p>
 						</div>
 						<div class="span2">
@@ -148,7 +162,8 @@
 								google_ad_width = 160;
 								google_ad_height = 600;
 								//-->
-							</script>							<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+							</script>
+							<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 						</div>
 					</div>
 				</section>
@@ -185,10 +200,14 @@
 						<h2>Installation</h2>
 					</div>
 
-					<p class=MsoNormal>WMC Recording Storage Pooler installs and runs as a
-						Windows service. The installer and service must be run as an administrator,
-						allowing access to the file system, registry, and scheduled tasks.</p>
-						<h3>System requirements</h3>
+					<p class=MsoNormal>WMC Recording Storage Pooler installs and runs as a
+
+						Windows service. The installer and service must be run as an administrator,
+
+						allowing access to the file system, registry, and scheduled tasks.</p>
+
+						<h3>System requirements</h3>
+
 					<ul>
 						<li>
 							Windows Media Center on Windows 7 x86 or x64 (see <span class="label label-info">Note</span> below).
@@ -201,16 +220,22 @@
 							</a>
 							).
 						</li>
-					</ul>					<div class="alert alert-block alert-info">
+					</ul>
+					<div class="alert alert-block alert-info">
 						<div class="panel-heading">
 							<i class="icon-info-sign"></i>
 							<strong>Note</strong>
 						</div>
 						<div class="panel-body">
-							<em>								WMC Recording Storage Pooler was designed for Windows Media Center in
-								Windows 7 x86 and x64 (both 32-bit and 64-bit versions). The software has not
-								been tested with any other version of WMC, but the functionality in Windows
-								XP MCE, Windows Vista, and Windows 8 is roughly the same, so the software should
+							<em>
+								WMC Recording Storage Pooler was designed for Windows Media Center in
+
+								Windows 7 x86 and x64 (both 32-bit and 64-bit versions). The software has not
+
+								been tested with any other version of WMC, but the functionality in Windows
+
+								XP MCE, Windows Vista, and Windows 8 is roughly the same, so the software should
+
 								reasonably work.
 								</em>
 						</div>
@@ -218,17 +243,28 @@
 
 					<h3>Installer Options</h3>
 
-					<p>The installer prompts you for two options, the Pooler Frequency and the
-						Recording Storage Locations. See the <a href="#Configuration">Configuration</a> section for information on
-						each of these options. For the Recording Storage Locations, provide the path
-						to a folder on each drive you want to include in the storage pool, separating each path with a semi-colon ( ; ). </p>
-						<p>For example, to include the C: and D: drives in your drive pool, type the
-						following in the Recording Storage Locations box: <b>C:\Users\Public\Recorded
-						TV\;D:\Recorded TV\</b></p>
-						<p class=MsoNormal>WMC Recording Storage Pooler will be configured and
-						running at the end of installation.</p>
-						<h3>After installation</h3>
-						<p><span class="label label-important">Important</span> Run Windows Media Center and add each of your Recording Storage Locations to the
+					<p>The installer prompts you for two options, the Pooler Frequency and the
+
+						Recording Storage Locations. See the <a href="#Configuration">Configuration</a> section for information on
+
+						each of these options. For the Recording Storage Locations, provide the path
+
+						to a folder on each drive you want to include in the storage pool, separating each path with a semi-colon ( ; ). </p>
+
+						<p>For example, to include the C: and D: drives in your drive pool, type the
+
+						following in the Recording Storage Locations box: <b>C:\Users\Public\Recorded
+
+						TV\;D:\Recorded TV\</b></p>
+
+						<p class=MsoNormal>WMC Recording Storage Pooler will be configured and
+
+						running at the end of installation.</p>
+
+						<h3>After installation</h3>
+
+						<p><span class="label label-important">Important</span> Run Windows Media Center and add each of your Recording Storage Locations to the
+
 						Watched Folders list in WMC in order to watch TV that has been recorded to any of those locations.</p>
 				</section>
 
@@ -237,20 +273,34 @@
 						<h2>Why WMC Recording Storage Pooler is needed</h2>
 					</div>
 					
-					<p>WMC supports only one Recording Storage location at a time. When running
-						WMC, you can go to Tasks &gt; Settings &gt; TV &gt; Recording Storage and set
-						one drive where you would like to store your Recorded TV.</p>
-						<p>If the drive selected in WMC is the C: drive, the Recording Storage
-						location is set to:</p>
-						<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Symbol'>&middot;</span><span
-						style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</span><b>C:\Users\Public\Recorded TV\</b></p>
-						<p>If the selected drive is any other drive, the Recording Storage location
-						is set to:</p>
-						<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Symbol'>&middot;</span><span
-						style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</span><b>X:\Recorded TV</b>\ (where <b>X:</b> is the drive letter)</p>
-						<p>While Windows Home Server does support drive pooling in the operating system, the functionality
+					<p>WMC supports only one Recording Storage location at a time. When running
+
+						WMC, you can go to Tasks &gt; Settings &gt; TV &gt; Recording Storage and set
+
+						one drive where you would like to store your Recorded TV.</p>
+
+						<p>If the drive selected in WMC is the C: drive, the Recording Storage
+
+						location is set to:</p>
+
+						<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Symbol'>&middot;</span><span
+
+						style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+						</span><b>C:\Users\Public\Recorded TV\</b></p>
+
+						<p>If the selected drive is any other drive, the Recording Storage location
+
+						is set to:</p>
+
+						<p style='margin-left:.5in;text-indent:-.25in'><span style='font-family:Symbol'>&middot;</span><span
+
+						style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+						</span><b>X:\Recorded TV</b>\ (where <b>X:</b> is the drive letter)</p>
+
+						<p>While Windows Home Server does support drive pooling in the operating system, the functionality
+
 						does not exist in Windows XP MCE, Windows Vista, or Windows 7, hence the need for WMC Recording Storage Pooler.</p>
 
 					<p><span class="label label-info">Note</span> Windows 8 introduced a feature called 
@@ -271,7 +321,8 @@
 						google_ad_width = 728
 						google_ad_height = 15;
 						//-->
-					</script>					<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+					</script>
+					<script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 				</div>
 
 				<section id="Configuration">
@@ -279,95 +330,171 @@
 						<h2>Configuration</h2>
 					</div>
 					
-					<p><span class=NormalChar>WMC Recording Storage Pooler supports several
-						configuration options that can be found</span> in the <b>WMCRecordingStoragePooler.exe.config</b>
-						file located in the installation folder, by default:</p>												<ul>
+					<p><span class=NormalChar>WMC Recording Storage Pooler supports several
+
+						configuration options that can be found</span> in the <b>WMCRecordingStoragePooler.exe.config</b>
+
+						file located in the installation folder, by default:</p>
+						
+						<ul>
 							<li>
-								<b>&#8220;%ProgramFiles%\WMC
+								<b>&#8220;%ProgramFiles%\WMC
+
 						Recording Storage Pooler</b>&#8221; on 32-bit
 							</li>
 							<li>
-								<b>&#8220;%ProgramFiles(x86)%\WMC
+								<b>&#8220;%ProgramFiles(x86)%\WMC
+
 						Recording Storage Pooler</b>&#8221; on 64-bit
 							</li>
-						</ul>
-						<p>Edit the config file to change the options. There is no need to restart
-						the service for the new settings to take effect. The software will reload the
-						settings from the config file the next time it refreshes the storage pool
-						(based on your selected Pooler Frequency), or you can restart the &#8220;<b>Windows
-						Media Center Recording Storage Pooler</b>&quot; service in the Services
-						manager in Windows for the settings to take immediate effect.</p>
-						<h4>PoolerFrequency</h4>
+						</ul>
+
+						<p>Edit the config file to change the options. There is no need to restart
+
+						the service for the new settings to take effect. The software will reload the
+
+						settings from the config file the next time it refreshes the storage pool
+
+						(based on your selected Pooler Frequency), or you can restart the &#8220;<b>Windows
+
+						Media Center Recording Storage Pooler</b>&quot; service in the Services
+
+						manager in Windows for the settings to take immediate effect.</p>
+
+						<h4>PoolerFrequency</h4>
+
 						<ul>
 							<li>
-								Sets the frequency (in minutes) that WMC Recording Storage Pooler will
+								Sets the frequency (in minutes) that WMC Recording Storage Pooler will
+
 						check the storage pool to find the drive with the most available free space.
 							</li>
-						</ul>
-						<h4>RecordingStorageLocations</h4>					<ul>
+						</ul>
+
+						<h4>RecordingStorageLocations</h4>
+					<ul>
 						<li>
-							An array of storage locations to include in the drive pool, e.g.,
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:.5in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;</span><span
-						style='font-family:"Courier New";color:#A31515'>ArrayOfString</span><span
-						style='font-family:"Courier New";color:blue'> </span><span style='font-family:
-						"Courier New";color:red'>xmlns:xsi</span><span style='font-family:"Courier New";
-						color:blue'>=<a href="//www.w3.org/2001/XMLSchema-instance">//www.w3.org/2001/XMLSchema-instance</a></span><span
-						style='font-family:"Courier New"'> </span><span style='font-family:"Courier New";
-						color:red'>xmlns:xsd</span><span style='font-family:"Courier New";color:blue'>=</span><span
-						style='font-family:"Courier New"'>&quot;</span><span style='font-family:"Courier New";
-						color:blue'>//www.w3.org/2001/XMLSchema</span><span style='font-family:
-						"Courier New"'>&quot;</span><span style='font-family:"Courier New";
-						color:blue'>&gt;</span></p>
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span><span
-						style='font-family:"Courier New"'>C:\Users\Public\Recorded TV\</span><span
-						style='font-family:"Courier New";color:blue'>&lt;/</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span></p>
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span><span
-						style='font-family:"Courier New"'>D:\Recorded TV\</span><span
-						style='font-family:"Courier New";color:blue'>&lt;/</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span></p>
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span><span
-						style='font-family:"Courier New"'>E:\Recorded TV\</span><span
-						style='font-family:"Courier New";color:blue'>&lt;/</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span></p>
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span><span
-						style='font-family:"Courier New"'>\\NAS\Recorded TV\</span><span
-						style='font-family:"Courier New";color:blue'>&lt;/</span><span
-						style='font-family:"Courier New";color:#A31515'>string</span><span
-						style='font-family:"Courier New";color:blue'>&gt;</span></p>
-						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
-						margin-left:.5in;margin-bottom:.0001pt;text-autospace:none'><span
-						style='font-family:"Courier New";color:blue'>&lt;/</span><span
-						style='font-family:"Courier New";color:#A31515'>ArrayOfString</span><span
+							An array of storage locations to include in the drive pool, e.g.,
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:.5in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;</span><span
+
+						style='font-family:"Courier New";color:#A31515'>ArrayOfString</span><span
+
+						style='font-family:"Courier New";color:blue'> </span><span style='font-family:
+
+						"Courier New";color:red'>xmlns:xsi</span><span style='font-family:"Courier New";
+
+						color:blue'>=<a href="//www.w3.org/2001/XMLSchema-instance">//www.w3.org/2001/XMLSchema-instance</a></span><span
+
+						style='font-family:"Courier New"'> </span><span style='font-family:"Courier New";
+
+						color:red'>xmlns:xsd</span><span style='font-family:"Courier New";color:blue'>=</span><span
+
+						style='font-family:"Courier New"'>&quot;</span><span style='font-family:"Courier New";
+
+						color:blue'>//www.w3.org/2001/XMLSchema</span><span style='font-family:
+
+						"Courier New"'>&quot;</span><span style='font-family:"Courier New";
+
+						color:blue'>&gt;</span></p>
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span><span
+
+						style='font-family:"Courier New"'>C:\Users\Public\Recorded TV\</span><span
+
+						style='font-family:"Courier New";color:blue'>&lt;/</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span></p>
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span><span
+
+						style='font-family:"Courier New"'>D:\Recorded TV\</span><span
+
+						style='font-family:"Courier New";color:blue'>&lt;/</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span></p>
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span><span
+
+						style='font-family:"Courier New"'>E:\Recorded TV\</span><span
+
+						style='font-family:"Courier New";color:blue'>&lt;/</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span></p>
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:1.0in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span><span
+
+						style='font-family:"Courier New"'>\\NAS\Recorded TV\</span><span
+
+						style='font-family:"Courier New";color:blue'>&lt;/</span><span
+
+						style='font-family:"Courier New";color:#A31515'>string</span><span
+
+						style='font-family:"Courier New";color:blue'>&gt;</span></p>
+
+						<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+
+						margin-left:.5in;margin-bottom:.0001pt;text-autospace:none'><span
+
+						style='font-family:"Courier New";color:blue'>&lt;/</span><span
+
+						style='font-family:"Courier New";color:#A31515'>ArrayOfString</span><span
+
 						style='font-family:"Courier New";color:blue'>&gt;</span></p>
 						</li>
-					</ul>
-						<h4>LogDebug</h4>					<ul>
+					</ul>
+
+						<h4>LogDebug</h4>
+					<ul>
 						<li>
-							Enables
-						logging debug messages to indicate what decisions WMC Recording Storage
-						Pooler is making. The debug messages are logged in the Windows "Application" Event Log with
+							Enables
+
+						logging debug messages to indicate what decisions WMC Recording Storage
+
+						Pooler is making. The debug messages are logged in the Windows "Application" Event Log with
+
 						the source WMCRecordingStoragePooler.
 						</li>
 					</ul>
@@ -391,23 +518,40 @@
 						<h2>Some technical details you may want to know</h2>
 					</div>
 
-					<p class=MsoNormal>WMC Recording Storage Pooler runs as a
-						Windows service under the LocalSystem account, because it needs to be able to
-						read and write registry values, and run a Windows Scheduled Task. If you
-						provide the proper permissions for these actions to another user account, the
-						software may function, but I haven&#8217;t tested it. </p>
-						<p class=MsoNormal>To change the Recording Storage path, WMC Recording
-						Storage Pooler changes a registry setting. After changing the Recording
-						Storage path, WMC Recording Storage Pooler starts the
-						&#8220;\Microsoft\Windows\Media Center\UpdateRecordPath&#8221; scheduled
-						task. This task is part of Windows Media Center itself, not WMC Recording
-						Storage Pooler. The scheduled task also runs under the LocalSystem account,
-						and is used to update the permissions on the new Recording Storage path to
-						allow WMC access rights to read/write from the folder (the WMC recording
-						service normally runs under the NETWORK SERVICE account). A different WMC
-						service periodically checks the Recording Storage location for changes, and
-						when one is found, it runs the same scheduled task. WMC Recoding Storage
-						Pooler runs the task immediately to ensure WMC can immediately begin
+					<p class=MsoNormal>WMC Recording Storage Pooler runs as a
+
+						Windows service under the LocalSystem account, because it needs to be able to
+
+						read and write registry values, and run a Windows Scheduled Task. If you
+
+						provide the proper permissions for these actions to another user account, the
+
+						software may function, but I haven&#8217;t tested it. </p>
+
+						<p class=MsoNormal>To change the Recording Storage path, WMC Recording
+
+						Storage Pooler changes a registry setting. After changing the Recording
+
+						Storage path, WMC Recording Storage Pooler starts the
+
+						&#8220;\Microsoft\Windows\Media Center\UpdateRecordPath&#8221; scheduled
+
+						task. This task is part of Windows Media Center itself, not WMC Recording
+
+						Storage Pooler. The scheduled task also runs under the LocalSystem account,
+
+						and is used to update the permissions on the new Recording Storage path to
+
+						allow WMC access rights to read/write from the folder (the WMC recording
+
+						service normally runs under the NETWORK SERVICE account). A different WMC
+
+						service periodically checks the Recording Storage location for changes, and
+
+						when one is found, it runs the same scheduled task. WMC Recoding Storage
+
+						Pooler runs the task immediately to ensure WMC can immediately begin
+
 						recording without permissions issues.</p>
 				</section>
 
@@ -420,34 +564,49 @@
 						google_ad_width = 728
 						google_ad_height = 15;
 						//-->
-					</script>					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+					</script>
+					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 				</div>
 
 				<section id="Recordingusinganetworkdrive">
 					<div class="page-header">
 						<h2>Recording using a network drive</h2>
 					</div>
-					<p class=MsoNormal>In order to work with a network drive (either a network
-						path mapped as a drive, or a UNC path), you will need to change the WMC
-						Recording Storage Pooler service to run under a user account with write
-						permissions to the network share. You will also need to change the user for
-						the WMC Receiver Service to set the proper permissions for WMC to record to
-						the network drive.</p>					<ol>
+					<p class=MsoNormal>In order to work with a network drive (either a network
+
+						path mapped as a drive, or a UNC path), you will need to change the WMC
+
+						Recording Storage Pooler service to run under a user account with write
+
+						permissions to the network share. You will also need to change the user for
+
+						the WMC Receiver Service to set the proper permissions for WMC to record to
+
+						the network drive.</p>
+					<ol>
 						<li>
-							Make sure you
-						have an administrator account that exists on both your WMC PC and the network
-						computer with the same user name and password on both computers. For a network
-						with a domain, it will need to be domain account. If this account doesn&#8217;t
+							Make sure you
+
+						have an administrator account that exists on both your WMC PC and the network
+
+						computer with the same user name and password on both computers. For a network
+
+						with a domain, it will need to be domain account. If this account doesn&#8217;t
+
 						exist, create it.
 						</li>
 						<li>
-							Change the
-						account that runs the WMC Recording Storage Pooler service
+							Change the
+
+						account that runs the WMC Recording Storage Pooler service
+
 						(WMCRecordingStoragePooler) to the administrator account.
 						</li>
 						<li>
-							Change the
-						account that runs the Windows Media Center Receiver Service (ehRecvr) to the
+							Change the
+
+						account that runs the Windows Media Center Receiver Service (ehRecvr) to the
+
 						administrator account.
 						</li>
 					</ol>
@@ -462,7 +621,8 @@
 						google_ad_width = 728
 						google_ad_height = 15;
 						//-->
-					</script>					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+					</script>
+					<script  type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 				</div>
 
 				<section id="ReleaseNotes">
@@ -470,11 +630,14 @@
 						<h2>Release Notes</h2>
 					</div>
 					
-					<p>2010-08-15 &#8211; WMC RSP 1.1.0</p>					<ul>
+					<p>2010-08-15 &#8211; WMC RSP 1.1.0</p>
+					<ul>
 						<li>
 							Added support for network drives.
 						</li>
-					</ul>					<p>2010-03-26 &#8211; WMC RSP 1.0.0</p>					<ul>
+					</ul>
+					<p>2010-03-26 &#8211; WMC RSP 1.0.0</p>
+					<ul>
 						<li>
 							Initial release.
 						</li>
@@ -503,18 +666,15 @@
 	<script>
 		($.fn.modal || document.write('<script src="../js/bootstrap.min.js"><\/script>'));
 	</script>
+	
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7TNSKBP8S"></script>
+        <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-4148123-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+                gtag('config', 'G-Z7TNSKBP8S');
+        </script>
 </body>
 </html>
-
